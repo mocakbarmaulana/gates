@@ -1,0 +1,88 @@
+.box-img-class {
+    background-color: #aaa;
+    height: 180px;
+}
+
+.img-course {
+    width: 80px;
+    /* height: 100%; */
+}
+
+.add-image-course {
+    width: 100px;
+}
+
+.bg-abu {
+    background-color: #aaa;
+}
+
+/* New Expert */
+:root {
+    --main-color: #353750;
+    --mint: #97f8e4;
+    --dark-mint: #7ccfbf;
+}
+
+* {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.bg-blue-dark {
+    background-color: var(--main-color);
+    color: #fff;
+}
+
+.text-mint {
+    color: #97f8e4;
+}
+
+.text-mint:hover {
+    color: var(--dark-mint);
+}
+
+.text-dark-blue {
+    color: var(--main-color);
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--main-color);
+}
+
+/* Box Webinar Online */
+/* .box-image {
+    position: relative;
+    transition: all 10s;
+    overflow: hidden;
+}
+
+.box-image img {
+    transition: all 0.2s;
+} */
+
+/* .box-image:hover img {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.box-image:hover::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: var(--dark-mint);
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.box-title {
+    color: #000;
+    position: absolute;
+    bottom: 0;
+    z-index: 0;
+} */

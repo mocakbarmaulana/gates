@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar {
+    background-color: #97f8e4;
+}
+
+/* sidebar */
+.sidebar-content,
+.main {
+    /* height: 300px; */
+    border: 1px solid #97f8e4;
+    /* background-color: #dafff8; */
+}
+
+.sidebar a {
+    color: #aaa;
+    font-weight: 500;
+}
+
+.sidebar a:hover {
+    color: #000;
+    background-color: #97f8e4;
+    text-decoration: none;
+}
+
+.sidebar a.active {
+    background-color: #97f8e4;
+    color: #000;
+}
+
+/* content */
+.main {
+    min-height: 500px;
+}

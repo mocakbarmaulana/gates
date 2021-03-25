@@ -1,0 +1,75 @@
+.bg-green-mint {
+    background-color: #97f8e4;
+    color: #000;
+}
+
+.order-filter {
+    border: none;
+}
+
+.color-mint {
+    color: #97f8e4;
+}
+
+.order-filter:hover {
+    background-color: #7ccfbf;
+    color: #fff;
+}
+
+.btn-active {
+    background-color: #7ccfbf;
+    color: #fff;
+}
+
+.btn-mint {
+    background-color: #97f8e4;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn-mint:hover {
+    background-color: #7ccfbf;
+    color: #000;
+    font-weight: 500;
+}
+
+/* Input Form */
+.input-mint:focus {
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(151, 248, 228, 1);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(151, 248, 228, 1);
+    box-shadow: 0px 0px 5px 5px rgba(151, 248, 228, 1);
+    border-color: #97f8e4;
+}
+
+/*  */
+
+/* Bagian course */
+* {
+    text-decoration: none;
+    color: #000;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.course-content {
+    cursor: pointer;
+    transition: ease-in-out 0.2s;
+}
+
+.course-content:hover {
+    background-color: #97f8e4;
+}
+
+.course-content .image-thumb {
+    overflow: hidden;
+}
+
+.course-content:hover .img-course {
+    transform: scale(1.5) rotate(15deg);
+}
+
+.img-course {
+    transition: ease-in-out 0.5s;
+}

@@ -1,0 +1,28 @@
+/* Footer */
+footer {
+    background-color: #353750;
+    color: #fff;
+}
+
+footer a {
+    color: #fff;
+}
+
+footer a:hover {
+    color: #97f8e4;
+    text-decoration: none;
+}
+
+.copyright {
+    position: relative;
+}
+
+.copyright::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #fff;
+}
