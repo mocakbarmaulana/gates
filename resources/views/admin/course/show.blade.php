@@ -125,7 +125,7 @@
                         </li>
                         <li class="mb-3">
                             <b>Expert :</b><br>
-                            By. {{$course->teacher->name}}
+                            By. {{$course->teacher}}
                         </li>
                         <li class="mb-3">
                             <b>Type :</b><br>

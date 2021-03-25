@@ -48,11 +48,6 @@ class Menu extends Component
                 'link' => 'learner.index',
             ],
             [
-                'label' => 'Teacher',
-                'icon' => 'fas fa-chalkboard-teacher',
-                'link' => 'teacher.index',
-            ],
-            [
                 'label' => 'Order',
                 'icon' => 'fas fa-shopping-basket',
                 'link' => 'order.index',

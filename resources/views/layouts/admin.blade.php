@@ -4,7 +4,6 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    @yield('title')
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -15,6 +14,7 @@
     {{-- <link rel="stylesheet" href="{{asset('assets/css/kuwi.css')}}"> --}}
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}" />
+    @yield('head')
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -53,9 +53,7 @@
     <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
-    <script>
-        @yield('js')
-    </script>
+    @yield('js')
 </body>
 
 </html>

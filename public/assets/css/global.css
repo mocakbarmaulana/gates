@@ -1,3 +1,21 @@
+/* Input Form */
+.btn-active {
+    background-color: #7ccfbf;
+    color: #fff;
+}
+
+.btn-mint {
+    background-color: #97f8e4;
+    color: #000;
+    font-weight: 500;
+}
+
+.btn-mint:hover {
+    background-color: #7ccfbf;
+    color: #000;
+    font-weight: 500;
+}
+
 /* Footer */
 footer {
     background-color: #353750;

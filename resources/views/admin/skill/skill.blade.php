@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title')
+@section('head')
 <title>List Skill</title>
 @endsection
 
@@ -121,8 +121,10 @@
 @endsection
 
 @section('js')
-$(".btn-delete-skill").on("click", function(){
-const id = $(this)[0].dataset.idskill;
-$(".form-skill-delete").attr('action', `/administrator/skill/${id}`)
-});
+<script>
+    $(".btn-delete-skill").on("click", function(){
+        const id = $(this)[0].dataset.idskill;
+        $(".form-skill-delete").attr('action', `/administrator/skill/${id}`)
+    });
+</script>
 @endsection

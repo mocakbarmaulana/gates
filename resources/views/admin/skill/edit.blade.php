@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title')
+@section('head')
 <title>Edit Skill</title>
 @endsection
 
@@ -77,9 +77,5 @@
         </div>
     </div>
 </div>
-
-@endsection
-
-@section('js')
 
 @endsection
