@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FrontController extends Controller
 {
@@ -15,7 +16,13 @@ class FrontController extends Controller
 
     public function detail($id){
 
-        $course = Course::find($id);
+        $course = Course::with(['orders' => function($order){
+            $order->where('student_id', Auth::guard('member')->id());
+        }])->find($id);
+
+        // if ($course->orders) {
+        //     dd(gettype($course->orders));
+        // }
 
         return view('detailCourse', compact('course'));
     }

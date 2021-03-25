@@ -9,7 +9,7 @@
 @section('content')
 <div class="container py-5" style="min-height: 40vh">
     <h1>{{$course->name}}</h1>
-    <p>By : {{$course->teacher->name}}</p>
+    <p>By : {{$course->teacher}}</p>
     <div class="row mb-5 mt-3">
         <div class="col-8">
             <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}" width="100%" height="540px"
@@ -20,10 +20,6 @@
 
             <div class="d-flex flex-column justify-content-between" style="height: 450px">
                 <ul class="list-unstyled">
-                    {{-- <li class="my-3">
-                        <p class="m-0"><strong>Description : </strong></p>
-                        <span>{{$course->description}}</span>
-                    </li> --}}
                     <li class="my-3">
                         <p class="m-0"><strong>Choose Date : </strong></p>
                         <select class="form-control detail_course">
@@ -37,17 +33,32 @@
                         </select>
                     </li>
                     <li class="my-3">
-                        <p class="m-0"><strong>Description : </strong></p>
-                        <span>{{ substr($course->description, 0, 100) }}..</span>
+                        <p class="m-0"><strong>Type Event : </strong></p>
+                        <span>{{ $course->event }}</span>
+                    </li>
+                    <li class="my-3">
+                        <p class="m-0"><strong>Type Event : </strong></p>
+                        <span>{{ $course->event }}</span>
                     </li>
                     <li class="my-3">
                         <p class="m-0"><strong>Price : </strong></p>
                         <span class="text-warning font-weight-bold">${{ number_format($course->price)}}</span>
                     </li>
                 </ul>
+                @if (!$course->orders->isEmpty())
+                <div>
+                    <span class="btn btn-info btn-block">Owned</span>
+                    <a href="#" class="btn btn-success btn-block">See Course</a>
+                </div>
+                @else
                 <button type="button" class="btn btn-primary btn-block btn-order-course" data-idcourse="{{$course->id}}"
                     data-toggle="modal" data-target="#btnOrder">Order</button>
+                @endif
             </div>
+        </div>
+        <div class="col-12 my-3">
+            <p class="m-0"><strong>Description : </strong></p>
+            <span>{{ $course->description }}</span>
         </div>
     </div>
     <div class="row">
