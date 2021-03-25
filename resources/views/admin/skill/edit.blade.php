@@ -35,10 +35,6 @@
                         <p>{{$skill->name}}</p>
                     </div>
                     <div>
-                        <label>Description</label>
-                        <p>{{$skill->description}}</p>
-                    </div>
-                    <div>
                         <label>Status</label>
                         @if ($skill->status == 1)
                         <p>Aktif <i class="fas fa-check-circle text-success"></i></p>
@@ -65,14 +61,6 @@
                             <label for="nameSkill">Skill</label>
                             <input type="text" name="skill" value="{{$skill->name}}" class="form-control"
                                 id="nameSkill">
-                        </div>
-                        @error('description')
-                        <span class="text-danger">*{{$message}}</span>
-                        @enderror
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" name="description" value="{{$skill->description}}" class="form-control"
-                                id="description">
                         </div>
                         <div class="form-group">
                             <label for="status">Status</label>

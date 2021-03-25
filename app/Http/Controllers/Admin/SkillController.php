@@ -43,7 +43,6 @@ class SkillController extends Controller
     {
         $this->validate($request, [
             'skill' => 'required|string|max:50|unique:skills,name',
-            'description' => 'required|max:200',
         ]);
 
         $request->request->add(['slug' => $request->skill]);
@@ -51,7 +50,6 @@ class SkillController extends Controller
         Skill::create([
             'name' => $request->skill,
             'slug' => $request->slug,
-            'description' => $request->description,
             'status' => true,
         ]);
 
@@ -96,7 +94,6 @@ class SkillController extends Controller
     {
         $this->validate($request, [
             'skill' => 'required|string|max:50|unique:skills,name,' . $id,
-            'description' => 'required|max:200',
             'status' => 'required',
         ]);
 
@@ -108,7 +105,6 @@ class SkillController extends Controller
 
         $skill = Skill::find($id);
         $skill->name = $request->skill;
-        $skill->description = $request->description;
         $skill->status = $request->status;
         $skill->save();
 

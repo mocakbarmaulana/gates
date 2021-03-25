@@ -39,14 +39,6 @@
                             <input type="text" name="skill" value="{{old('skill')}}" class="form-control"
                                 id="nameSkill">
                         </div>
-                        @error('description')
-                        <span class="text-danger">*{{$message}}</span>
-                        @enderror
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <input type="text" name="description" value="{{old('description')}}" class="form-control"
-                                id="description">
-                        </div>
                         <button type="submit" class="btn btn-dark">Submit</button>
                     </form>
                 </div>
