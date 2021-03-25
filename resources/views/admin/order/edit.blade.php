@@ -95,7 +95,9 @@
             @endif
         </div>
         <div class="col text-right">
-            <a href="#" class="btn btn-success font-weight-bold btn-block">Detail Course</a>
+            <a href="{{route('course.show', $order->course_id)}}"
+                class="btn btn-success font-weight-bold btn-block">Detail
+                Course</a>
         </div>
     </div>
 </div>

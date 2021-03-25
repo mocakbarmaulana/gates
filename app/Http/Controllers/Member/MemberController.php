@@ -84,7 +84,7 @@ class MemberController extends Controller
         $payment = new Payment();
         $payment->order_id = $request->id;
         $payment->name_transfer = $request->name;
-        $payment->name_banktransfer = $request->name_bank;
+        $payment->name_bank = $request->name_bank;
         $payment->number_bank = $request->number_bank;
         $payment->transfer_date = $request->date_transfer;
         $payment->amount = $request->amount;
@@ -100,8 +100,6 @@ class MemberController extends Controller
         $active = 'Course';
         $id = Auth::guard('member')->id();
         $q = $request->q;
-
-
 
         $courses = Order::when($request->q, function($q){
             $q->where('course_id', 7)

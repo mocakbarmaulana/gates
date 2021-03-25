@@ -8,6 +8,12 @@
 <div class="p-4">
     <h1>{{$course->course->name}}</h1>
     <div class="row mt-4">
+        @if ($course->payment->status)
+        <span>oke</span>
+        @endif
+        <div class="col-12">
+
+        </div>
         <div class="col">
             <img src="{{asset('storage/assets/images/course/'.$course->course->image_course)}}" height="400px"
                 alt="image-course" width="100%">
