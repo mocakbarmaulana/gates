@@ -59,6 +59,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function(){
     Route::resource('learner', 'App\Http\Controllers\Admin\LearnerController');
     Route::resource('order', 'App\Http\Controllers\Admin\OrderController');
     Route::resource('payment', 'App\Http\Controllers\Admin\PaymentController');
+    Route::post('/achive/{id}', [App\Http\Controllers\Admin\AchieveController::class, 'achive'])->name('admin.achive');
 });
 
 

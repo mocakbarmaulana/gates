@@ -36,6 +36,13 @@
                 <li class="mb-3"><b>Teacher Workshop :</b><br>
                     {{$course->course->teacher}}
                 </li>
+                <li class="mb-3"><b>Status Workshop :</b><br>
+                    @if ($course->course->status == 0)
+                    Workshop not Finished yet
+                    @else
+                    Workshop Finished
+                    @endif
+                </li>
             </ul>
         </div>
     </div>

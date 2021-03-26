@@ -171,13 +171,6 @@ class MemberController extends Controller
         $active = 'Achievement';
         $id = Auth::guard('member')->id();
         $trophys = Achievement::where('student_id', $id)->get();
-        // $test = Achievement::withCount('student')->where('student_id', $id)->get();
-
-        // dd($test);
-        // foreach($test as $i){
-        //     // var_dump($i);
-        //     var_dump($i->student_count);
-        // }die;
 
         return view('member.trophy', compact('active', 'trophys'));
     }

@@ -165,6 +165,23 @@
                             </ul>
                             @endforeach
                         </li>
+                        <li class="mb-3">
+                            <b>Status :</b><br>
+                            @if ($course->status == 0)
+                            Workshop not Finished yet
+                            @else
+                            Workshop Finished
+                            @endif
+                        </li>
+                        <li class="mt-5">
+                            @if ($course->status == 0)
+                            <form action="{{route('admin.achive', $course->id)}}" method="post">
+                                @csrf
+                                <button type="submit" class="btn btn-success btn-block">Finish
+                                    Workshop</button>
+                            </form>
+                            @endif
+                        </li>
                     </ul>
                 </div>
             </div>
