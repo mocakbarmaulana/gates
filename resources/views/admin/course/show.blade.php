@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title')
+@section('head')
 <title>List Course</title>
 <link rel="stylesheet" href="{{asset('assets/css/admin/admin.css')}}">
 @endsection
@@ -21,7 +21,6 @@
                     <h5>List Member Course</h5>
                 </div>
                 <div class="card-body p-0">
-
                     <nav class="mt-3">
                         <div class="container text-center">
                             <div class="nav nav-tabs row" id="nav-tab" role="tablist">
@@ -58,7 +57,7 @@
                             </table>
                             @else
                             <div class="alert alert-info my-2" role="alert">
-                                Tidak Ada Event 2
+                                Tidak Ada Event 1
                             </div>
                             @endif
                             @else
@@ -90,12 +89,20 @@
                             </table>
                             @else
                             <div class="alert alert-info my-2" role="alert">
+                                @if (count($course->course_details) == 2)
+                                Belum ada member
+                                @else
                                 Tidak Ada Event 2
+                                @endif
                             </div>
                             @endif
                             @else
                             <div class="alert alert-info my-2" role="alert">
+                                @if (count($course->course_details) == 1)
+                                Tidak Ada Event 2
+                                @else
                                 Belum ada member
+                                @endif
                             </div>
                             @endif
                         </div>

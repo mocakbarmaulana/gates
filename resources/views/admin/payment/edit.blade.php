@@ -38,7 +38,8 @@
                         <div class="col">
                             <ul class="list-unstyled">
                                 <li class="mb-3">: {{$payment->name_transfer}}</li>
-                                <li class="mb-3">: {{$payment->name_banktransfer}}</li>
+                                <li class="mb-3">: {{$payment->name_bank}}</li>
+                                <li class="mb-3">: {{$payment->number_bank}}</li>
                                 <li class="mb-3">: $ {{number_format($payment->amount)}}</li>
                                 <li class="mb-3">: {{date('d-m-Y', strtotime($payment->transfer_date))}}</li>
                             </ul>

@@ -123,6 +123,10 @@ class CourseController extends Controller
             $q->where('status', 1);
         })->where('course_id', $id)->orderBy('event_date', 'ASC')->orderBy('event_time', 'ASC')->get();
 
+        // dd($order);
+        // if ($order->isEmpty()) {
+        //     dd('mbuh');
+        // };
 
         return view('admin.course.show', compact('active', 'course', 'order'));
     }
