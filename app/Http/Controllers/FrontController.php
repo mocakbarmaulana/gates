@@ -10,8 +10,9 @@ class FrontController extends Controller
 {
     public function home()
     {
+        $active = 'Home';
         $courses = Course::paginate(4);
-        return view('home', compact('courses'));
+        return view('home', compact('courses', 'active'));
     }
 
     public function detail($id){

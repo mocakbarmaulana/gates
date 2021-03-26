@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{asset('assets/bootstrap/css/bootstrap.min.css')}}">
 
     {{-- Font Awesome --}}
+    <link rel="stylesheet" href="{{asset('assets/css/global.css')}}">
     <link rel="stylesheet" href="{{asset('assets/fontawesome/css/all.min.css')}}">
 
     @yield('head')
@@ -25,6 +26,15 @@
     {{-- Script JS --}}
     <script src="{{ asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script>
+        $(".profile").on('click', function(){
+            $(".menu-profile").toggle();
+        })
+
+        $(".menu-profile li a").on('click', function(){
+            $(".menu-profile").toggle();
+        })
+    </script>
     <script>
         @yield('js')
     </script>

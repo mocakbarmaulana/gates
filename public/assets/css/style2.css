@@ -2,16 +2,16 @@
     box-sizing: border-box;
 }
 
-body {
+/* body {
     background-color: #fff;
-}
-
+} */
+/*
 a.nav-link {
     font-weight: 700;
-}
+} */
 
 /* Navbar */
-nav.navbar {
+/* nav.navbar {
     position: relative;
 }
 
@@ -29,7 +29,7 @@ nav.navbar::after {
 nav.navbar .container {
     position: relative;
     z-index: 99;
-}
+} */
 
 /* End Navbar */
 
@@ -46,7 +46,7 @@ section {
 
 /* Jumbotron Section */
 
-section.jumbotron {
+/* section.jumbotron {
     background-color: #fff;
     position: relative;
 }
@@ -65,7 +65,7 @@ section.jumbotron::before {
 section.jumbotron .container {
     position: relative;
     z-index: 999;
-}
+} */
 
 /* End Jumbotron Section */
 

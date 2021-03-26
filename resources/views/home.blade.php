@@ -2,6 +2,7 @@
 
 @section('head')
 <title>Home</title>
+<link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
 <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}">
 @endsection
 
