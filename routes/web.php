@@ -70,17 +70,17 @@ Route::group(['prefix' => 'expert', 'namespace' => 'expert'], function(){
 });
 
 // Expert Route
-Route::group(['prefix' => 'expert', 'middleware' => 'expert'], function(){
-    Route::get('/class', [App\Http\Controllers\Expert\ClassController::class, 'index'])->name('expert.class');
-        Route::get('/class/edit/{id}', [App\Http\Controllers\Expert\ClassController::class, 'edit'])->name('expert.class.edit');
-    Route::get('/class/show/{id}', [App\Http\Controllers\Expert\ClassController::class, 'show'])->name('expert.class.show');
-    Route::put('/class/update/{id}', [App\Http\Controllers\Expert\ClassController::class, 'update'])->name('expert.class.update');
-    Route::delete('/class/delete/{id}', [App\Http\Controllers\Expert\ClassController::class, 'destroy'])->name('expert.class.delete');
-    Route::post('/class/store', [App\Http\Controllers\Expert\ClassController::class, 'store'])->name('expert.class.store');
-    Route::post('/achive/{id}', [App\Http\Controllers\Expert\ExpertController::class, 'achive'])->name('expert.achive');
+// Route::group(['prefix' => 'expert', 'middleware' => 'expert'], function(){
+//     Route::get('/class', [App\Http\Controllers\Expert\ClassController::class, 'index'])->name('expert.class');
+//         Route::get('/class/edit/{id}', [App\Http\Controllers\Expert\ClassController::class, 'edit'])->name('expert.class.edit');
+//     Route::get('/class/show/{id}', [App\Http\Controllers\Expert\ClassController::class, 'show'])->name('expert.class.show');
+//     Route::put('/class/update/{id}', [App\Http\Controllers\Expert\ClassController::class, 'update'])->name('expert.class.update');
+//     Route::delete('/class/delete/{id}', [App\Http\Controllers\Expert\ClassController::class, 'destroy'])->name('expert.class.delete');
+//     Route::post('/class/store', [App\Http\Controllers\Expert\ClassController::class, 'store'])->name('expert.class.store');
+//     Route::post('/achive/{id}', [App\Http\Controllers\Expert\ExpertController::class, 'achive'])->name('expert.achive');
 
-    Route::get('/logout', [App\Http\Controllers\Expert\LoginExpertController::class, 'logout'])->name('expert.logout');
-});
+//     Route::get('/logout', [App\Http\Controllers\Expert\LoginExpertController::class, 'logout'])->name('expert.logout');
+// });
 
 // Logout
 Route::get('logout', function(){
