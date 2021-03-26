@@ -13,6 +13,7 @@ use App\Models\Student;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
 
 use function PHPUnit\Framework\isNull;
@@ -155,11 +156,22 @@ class MemberController extends Controller
             'email' => 'required|email|unique:students,email,'.$id,
             'phone_number' => 'required|integer',
             'address' => 'required|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
         $account = Student::find($id);
+
+        if ($request->image_delete) {
+            $imageName = null;
+            Storage::delete('/public/assets/images/user/'.$account->image);
+        } else {
+            $imageName = Helper::uploadImage($request->image, $account->image, 'user');
+        }
+
+
         $account->name = $request->name;
         $account->email = $request->email;
+        $account->image = $imageName;
         $account->phone_number = $request->phone_number;
         $account->address = $request->address;
         $account->save();

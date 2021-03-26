@@ -32,4 +32,12 @@ class Student extends Authenticatable
     public function achievement(){
         return $this->hasMany(Achievement::class);
     }
+
+    public function getUserImage($value){
+        if (!empty($value)) {
+            return "storage/assets/images/user/".$value;
+        } else {
+            return "assets/images/profile.png";
+        }
+    }
 }
