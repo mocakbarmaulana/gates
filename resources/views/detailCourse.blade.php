@@ -47,8 +47,7 @@
                 </ul>
                 @if (!$course->orders->isEmpty())
                 <div>
-                    <span class="btn btn-info btn-block">Owned</span>
-                    <a href="#" class="btn btn-success btn-block">See Course</a>
+                    <a href="{{route('member.getorder')}}" class="btn btn-info btn-block">Owned</a>
                 </div>
                 @else
                 <button type="button" class="btn btn-primary btn-block btn-order-course" data-idcourse="{{$course->id}}"

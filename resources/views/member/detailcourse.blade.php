@@ -34,7 +34,7 @@
                 </li>
                 @endif
                 <li class="mb-3"><b>Teacher Workshop :</b><br>
-                    {{$course->course->teacher->name}}
+                    {{$course->course->teacher}}
                 </li>
             </ul>
         </div>

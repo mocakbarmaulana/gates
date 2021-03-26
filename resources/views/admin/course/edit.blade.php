@@ -19,6 +19,11 @@
         {{session('success')}}
     </div>
     @endif
+    @if (session('error'))
+    <div class="alert alert-danger mb-2" role="alert">
+        {{session('error')}}
+    </div>
+    @endif
     <div class="row">
         <div class="col">
             <form action="{{route('course.update', $course->id)}}" method="POST" enctype="multipart/form-data">

@@ -43,7 +43,7 @@
                     @foreach ($payments as $payment)
                     <tr>
                         <td>{{$payment->name_transfer}}</td>
-                        <td>{{$payment->name_banktransfer}}</td>
+                        <td>{{$payment->name_bank}}</td>
                         <td class="text-center">${{number_format($payment->amount)}}</td>
                         <td class="text-center">
                             <a href="{{route('payment.edit', $payment->id)}}"

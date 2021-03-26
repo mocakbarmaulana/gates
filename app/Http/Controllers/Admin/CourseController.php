@@ -134,7 +134,9 @@ class CourseController extends Controller
     public function destroy($id){
         $course = Course::withCount(['orders'])->find($id);
 
-        if($course->courses_count == 0){
+        if($course->orders_count == 0){
+
+            dd('oke');
             Storage::delete('/public/assets/images/course/'.$course->image_course);
             $course->delete();
 
@@ -142,6 +144,6 @@ class CourseController extends Controller
         }
 
 
-        return redirect()->back()->with('error', 'Skill sedang digunakan');
+        return redirect()->back()->with('error', 'Course sudah ada yang pesan');
     }
 }

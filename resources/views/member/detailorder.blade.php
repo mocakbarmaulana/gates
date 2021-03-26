@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="py-4">
-    @if ($order->payments)
+    @if ($order->status == 0 && $order->payments)
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
             Saat ini pembayaran anda sedang di lakukan pengecakan, jika dalam 2 jam belum ada perubahan silakan hubungi

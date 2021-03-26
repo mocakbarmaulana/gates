@@ -16,9 +16,10 @@
                 <div class="col-3">
                     <form action="" id="form" method="GET">
                         <select name="q" class="custom-select mb-3 input-mint">
-                            <option value="" selected>All</option>
+                            <option value="">All</option>
                             @foreach ($skills as $skill)
-                            <option value="{{$skill->id}}">{{$skill->name}}</option>
+                            <option value="{{$skill->id}}" @if ($skill->id == $q) selected @endif>{{$skill->name}}
+                            </option>
                             @endforeach
                         </select>
                     </form>
@@ -29,14 +30,14 @@
     <div class="row">
         @foreach ($courses as $course)
         <div class="col-4 mb-4">
-            <div class="card">
-                <a href="{{route('member.getdetailcourse', $course->course_id)}}">
+            <div class="card shadow">
+                <a href="{{route('member.getdetailcourse', $course->id)}}">
                     <div class="card-body course-content">
                         <div class="image-thumb" style="width: 100%; height: 200px">
-                            <img src="{{asset('storage/assets/images/course/'.$course->course->image_course)}}"
+                            <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}"
                                 alt="image-course" class="img-course" style="width: 100%; height: 100%">
                         </div>
-                        <h5 class="my-2">{{$course->course->name}}</h5>
+                        <h5 class="my-2">{{$course->name}}</h5>
                     </div>
                 </a>
             </div>

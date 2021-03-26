@@ -66,6 +66,8 @@ class MemberController extends Controller
         $active = 'Order';
         $order = Order::find($id);
 
+        // dd($order->payments);
+
         return view('member.detailorder', compact('active', 'order') );
     }
 
@@ -101,14 +103,27 @@ class MemberController extends Controller
         $id = Auth::guard('member')->id();
         $q = $request->q;
 
-        $courses = Order::when($request->q, function($q){
-            $q->where('course_id', 7)
-            ->orWhere('student_id', 1);
-        })->where('student_id', $id)->get();
+        // $courses = Order::when($request->q, function($q){
+        //     $q->where('course_id', 7)
+        //     ->orWhere('student_id', 1);
+        // })->where('student_id', $id)->where('status', 1)->get();
+
+        // $courses = Order::where('student_id', $id)->where('status', 1)->get();
+        // $courses = Order::when($q, function($q){
+        //     $q->with(['course' => function($e){
+        //         $e->where('skill_id', 1);
+        //     }]);
+        // })->where('student_id', $id)->where('status', 1)->get();
+
+            $courses = Course::when($request->q, function($q, $request) {
+                $q->where('skill_id', $request);
+            })->whereHas('orders', function($q){
+                $q->where('status', 1)->where('student_id', 1);
+            })->get();
 
         $skills = Skill::all();
 
-        return view('member.course', compact('active', 'courses', 'skills'));
+        return view('member.course', compact('active', 'courses', 'skills', 'q'));
     }
 
     public function getDetailCourse($id){
@@ -117,6 +132,8 @@ class MemberController extends Controller
                         ->where('course_id', $id)
                         ->where('student_id', Auth::guard('member')->id())
                         ->first();
+
+                        // dd($course->course_detail);
 
         if(is_null($course)){
             return redirect()->back();
