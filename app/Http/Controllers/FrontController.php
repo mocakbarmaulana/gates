@@ -46,4 +46,9 @@ class FrontController extends Controller
         $active = '';
         return view('aboutus', compact('active'));
     }
+
+    public function career(){
+        $active = '';
+        return view('career', compact('active'));
+    }
 }

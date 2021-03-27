@@ -1,0 +1,23 @@
+.career {
+    padding: 50px 0;
+    background-color: #00698f;
+    color: #fff;
+    margin-bottom: 50px;
+}
+
+.career p {
+    font-size: 1.2rem;
+    line-height: 2rem;
+}
+
+.career-business {
+    border: 1px solid #000;
+}
+
+.career-business .title {
+    background-color: #e1e1e1;
+}
+
+.career-business .title h5 {
+    text-transform: capitalize !important;
+}
