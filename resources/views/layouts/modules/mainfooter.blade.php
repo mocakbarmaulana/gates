@@ -9,7 +9,7 @@
                     <li class="mb-3">
                         <h5 class="text-white">Company</h5>
                     </li>
-                    <li class="mb-3"><a href="#">About Us</a></li>
+                    <li class="mb-3"><a href="{{route('home.about')}}">About Us</a></li>
                     <li class="mb-3"><a href="#">Career</a></li>
                     <li class="mb-3"><a href="#">Contact Us</a></li>
                 </ul>

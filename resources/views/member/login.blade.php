@@ -18,11 +18,13 @@
 
     <div class="container d-flex align-items-center justify-content-center flex-column" style="height: 100vh">
         <div class="mb-3">
-            <img src="{{asset('assets/images/Logo.png')}}" width="250px" alt="">
+            <a href="/">
+                <img src="{{asset('assets/images/Logo.png')}}" width="250px" alt="">
+            </a>
         </div>
         <div class="card pt-4 px-2 login-card" style="width: 25rem">
             <div class="card-title text-center">
-                <h1><a href="/" class="text-dark link-hover">Sign In</a></h1>
+                <h1><a href="{{route('member.login')}}" class="text-dark link-hover">Sign In</a></h1>
             </div>
             <div class="card-body">
                 @if (session('error'))

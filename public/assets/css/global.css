@@ -185,6 +185,11 @@ footer a.social:hover i {
 
 .home .menu-profile {
     top: 82px;
+    background-color: var(--mint-dark);
+}
+
+.home .menu-profile li:hover {
+    background-color: var(--mint-hover);
 }
 
 /* Navbar */

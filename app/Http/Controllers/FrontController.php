@@ -41,4 +41,9 @@ class FrontController extends Controller
 
         return view('detailCourse', compact('course', 'active', 'othercourse'));
     }
+
+    public function aboutus(){
+        $active = '';
+        return view('aboutus', compact('active'));
+    }
 }

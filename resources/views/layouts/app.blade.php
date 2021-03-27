@@ -18,9 +18,7 @@
 <body>
 
     @include('layouts.modules.navbar')
-
     @yield('content')
-
     @include('layouts.modules.mainfooter')
 
     {{-- Script JS --}}
