@@ -176,7 +176,7 @@
             </div>
             <div class="course-body pb-3">
                 <div class="d-flex justify-content-end p-3">
-                    <a href="#" class="nav-link text-navbar"><strong>See All > </strong></a>
+                    <a href="{{route('home.menu')}}" class="nav-link text-navbar"><strong>See All > </strong></a>
                 </div>
                 <div class="row">
                     {{-- <div class="col-4 px-2 d-flex justify-content-center">
@@ -220,7 +220,8 @@
                         <span class="text-secondary">{{$course->skill->name}}</span>
                     </div>
                     <div class="">
-                        <span class="badge badge-pill badge-info">1 / 60</span>
+                        <span class="badge badge-pill badge-info">{{$course->orders_count}} /
+                            {{$course->course_details[0]->quota}}</span>
                     </div>
                 </div>
                 <div class="info-course mt-2 d-flex justify-content-between">
@@ -231,7 +232,8 @@
                             class="text-warning font-weight-bold">{{date('d/m/Y', strtotime($course->course_details[0]->event_date))}}</span>
                     </div>
                     <div class="align-self-end" style="width: 70px">
-                        <a href="#" class="btn btn-mint btn-sm" style="width: 65px">Order</a>
+                        <a href="{{route('home.detail', $course->id)}}" class="btn btn-mint btn-sm"
+                            style="width: 65px">Order</a>
                         {{-- <a href="#" class="btn btn-mint btn-sm" style="width: 65px">Owned</a> --}}
                     </div>
                 </div>

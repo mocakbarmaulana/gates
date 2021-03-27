@@ -13,14 +13,9 @@
                     <a class="nav-link text-navbar {{($active == 'Home') ? 'active' : ''}}" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="#">Menu</a>
+                    <a class="nav-link text-navbar {{($active == 'Menu') ? 'active' : ''}}"
+                        href="{{route('home.menu')}}">Menu</a>
                 </li>
-                {{-- <li class="nav-item">
-                    <a class="nav-link text-navbar" href="#">Contact us</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-navbar" href="#">About us</a>
-                </li> --}}
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="#">For Teacher</a>
                 </li>

@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::get('/', [App\Http\Controllers\FrontController::class, 'home'])->name('home');
 Route::get('/detail/{id}', [App\Http\Controllers\FrontController::class, 'detail'])->name('home.detail');
+Route::get('/menu', [App\Http\Controllers\FrontController::class, 'menu'])->name('home.menu');
 
 
 Auth::routes();

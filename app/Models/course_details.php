@@ -18,4 +18,8 @@ class course_details extends Model
     public function orders(){
         return $this->hasMany(Order::class, 'course_detail_id');
     }
+
+    public function count($value){
+        return Order::where('course_detail_id', $value)->count();
+    }
 }

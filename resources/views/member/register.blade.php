@@ -11,11 +11,15 @@
 
     {{-- My Stle --}}
     <link rel="stylesheet" href="{{asset('assets/css/style3.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/css/global.css')}}">
 </head>
 
 <body>
 
     <div class="container d-flex align-items-center justify-content-center flex-column" style="height: 100vh">
+        <div class="mb-3">
+            <img src="{{asset('assets/images/Logo.png')}}" width="250px" alt="">
+        </div>
         <div class="card pt-4 px-2 login-card" style=" width: 28rem">
             <div class="card-title text-center">
                 <h1><a href="/" class="text-dark link-hover">Sign Up</a></h1>
@@ -25,8 +29,8 @@
                     @csrf
                     <div class="form-group">
                         <label class="m-0">Full Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" name="name"
-                            value="{{old('name')}}">
+                        <input type="text" class="form-control input-mint @error('name') is-invalid @enderror"
+                            name="name" value="{{old('name')}}">
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong class="px-2">*{{ $message }}</strong>
@@ -35,8 +39,8 @@
                     </div>
                     <div class="form-group">
                         <label class="m-0">Email</label>
-                        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email"
-                            value="{{old('email')}}">
+                        <input type="email" class="form-control input-mint @error('email') is-invalid @enderror"
+                            name="email" value="{{old('email')}}">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong class="px-2">*{{ $message }}</strong>
@@ -65,7 +69,8 @@
             </div> --}}
             <div class="form-group">
                 <label class="m-0">Password</label>
-                <input type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+                <input type="password" class="form-control input-mint @error('password') is-invalid @enderror"
+                    name="password">
                 @error('password')
                 <span class="invalid-feedback" role="alert">
                     <strong class="px-2">*{{ $message }}</strong>
@@ -74,10 +79,10 @@
             </div>
             <div class="form-group">
                 <label class="m-0">Password Confirmation</label>
-                <input type="password" class="form-control" name="password_confirmation">
+                <input type="password" class="form-control input-mint" name="password_confirmation">
             </div>
             <div class="form-group mt-4">
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <button type="submit" class="btn btn-orange btn-block">Register</button>
             </div>
             </form>
         </div>

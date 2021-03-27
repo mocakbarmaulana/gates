@@ -35,4 +35,8 @@ class Order extends Model
     //     return $this->hasManyThrough(Course::class, Student::class);
     // }
 
+    public function countCourse($value){
+        return $this->where('course_detail_id', $value)->get();
+    }
+
 }

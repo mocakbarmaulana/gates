@@ -35,9 +35,7 @@
             $(".menu-profile").toggle();
         })
     </script>
-    <script>
-        @yield('js')
-    </script>
+    @yield('js')
 </body>
 
 </html>
