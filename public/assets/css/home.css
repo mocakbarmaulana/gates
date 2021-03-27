@@ -1,56 +1,82 @@
+:root {
+    --orange-main: #e85d25;
+    --green-mint: #97f8e4;
+    --mint-hover: #7ccfbf;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 a {
     text-decoration: none;
 }
 
-/* Menu Profile */
-.nav-item .profile {
-    position: relative;
-    cursor: pointer;
+/* Section */
+section {
+    background-color: #fff;
 }
 
-.nav-item .profile:hover i {
-    color: #7ccfbf;
+/* Jumbotron */
+section.jumbotron {
+    background-image: url("../images/bg-jumbotron.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 800px 100%;
+    background-color: #fff;
 }
 
-.menu-profile {
-    display: none;
-    position: absolute;
-    width: 150px;
-    top: 82px;
-    left: 80%;
-    background-color: #97f8e4;
-    z-index: 999;
-    text-align: center;
-    border-radius: 5px;
-    transition: all 100s;
-}
+/* Goal Section */
 
-.menu-profile li a {
-    font-weight: 600;
+/* End Goal Section */
+
+/* Skill Section */
+.skill-body .no {
     color: #fff;
-    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
 }
 
-.menu-profile li:hover {
-    color: #000;
-    cursor: pointer;
-    background-color: #7ccfbf;
+.skill-body .set {
+    font-weight: 700;
+}
+/* End Skill Section */
+
+/* Course Section */
+section#course {
+    background-color: #97f8e4;
+    height: 650px;
 }
 
-.menu-profile li:hover:first-child {
-    border-radius: 5px 5px 0 0;
+.course-content {
+    height: 400px;
+    background-color: #fff;
+}
+/* End Course Section */
+
+/* Testimoni Section */
+section#testimoni {
+    height: 500px;
 }
 
-.menu-profile li:hover:last-child {
-    border-radius: 0 0 5px 5px;
+section#testimoni h3 {
+    font-size: 36px;
+    margin-bottom: 60px;
 }
 
-/* Navbar */
-.navbar {
-    transition: ease-out 0.5s;
-    height: 80px;
+.img-testi {
+    width: 140px;
+    margin-bottom: 20px;
 }
+/* End Testimoni Section */
 
-.text-navbar.active {
-    color: #000;
+/* Team Section */
+.team-text {
+    font-size: 22px;
+    font-weight: 600;
 }
+/* End Team Section */

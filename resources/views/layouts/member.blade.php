@@ -21,7 +21,7 @@
 <body>
 
 
-    <nav class="navbar navbar-expand-lg navbar-light" style="height: 60px">
+    <nav class="navbar navbar-expand-lg navbar-light shadow" style="height: 60px">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="{{asset('assets/images/Logo.png')}}" alt="" style="width: 120px">

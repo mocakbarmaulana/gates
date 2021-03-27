@@ -38,10 +38,6 @@ footer a {
     text-decoration: none;
 }
 
-/* Section */
-section {
-    background-color: #fff;
-}
 /* End Section */
 
 /* Jumbotron Section */
@@ -68,26 +64,6 @@ section.jumbotron .container {
 } */
 
 /* End Jumbotron Section */
-
-/* Goal Section */
-section#goal {
-    background-color: #97f8e4;
-}
-
-section#goal h2 {
-    font-weight: 700;
-    font-size: 36px;
-}
-
-.goal-head {
-    background-color: #fff;
-}
-
-.goal-info {
-    font-size: 12px;
-}
-
-/* End Goal Section */
 
 /* Skill Section */
 section#skill {
@@ -119,7 +95,6 @@ section#course {
     height: 400px;
     background-color: #fff;
 }
-
 /* End Course Section */
 
 /* Testimoni Section */

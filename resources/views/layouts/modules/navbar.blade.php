@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="height: 80px">
+<nav class="navbar home navbar-expand-lg navbar-light shadow" style="height: 80px">
     <div class="container">
         <a class="navbar-brand" href="/">
             <img src="{{asset('assets/images/Logo.png')}}" alt="" style="width: 120px">
@@ -61,7 +61,7 @@
                 </li>
                 @else
                 <li class="nav-item">
-                    <a class="nav-link text-navbar btn btn-warning btn-sm mx-4" href="{{route('member.login')}}">Login /
+                    <a class="nav-link text-navbar btn btn-orange btn-sm mx-4" href="{{route('member.login')}}">Login /
                         Sign Up</a>
                 </li>
                 @endif

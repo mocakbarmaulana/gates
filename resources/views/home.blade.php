@@ -3,22 +3,31 @@
 @section('head')
 <title>Home</title>
 <link rel="stylesheet" href="{{asset('assets/css/home.css')}}">
-<link rel="stylesheet" href="{{asset('assets/css/style2.css')}}">
+<link rel="stylesheet" href="{{asset('assets/css/global.css')}}">
+{{-- <link rel="stylesheet" href="{{asset('assets/css/style2.css')}}"> --}}
 @endsection
 
 @section('content')
-<section class="jumbotron p-0 pt-5 pb-3">
+<section class="jumbotron p-0 py-5 pb-3">
     <div class="container">
-        <h1 class="display-5">Reskill & Upskill:</h1>
-        <h1 class="display-5">Bring out the best in you</h1>
-        <ul class="list-unstyled mt-4">
-            <li>Broaden your professional potential.</li>
-            <li>Deepen your personal horizons.</li>
-            <li>Start a skill-building plan now.</li>
-        </ul>
-        <div style="margin-top: 100px">
-            <a href="#" class="btn btn-warning">Get Started</a>
-            <a href="#" class="btn btn-outline-warning">Learn More</a>
+        <div class="row">
+            <div class="col-6">
+                <p><b>Best Webinar Online Platform</b></p>
+                <h1 class="display-5 text-mint-dark fw-700 mb-3">Reskill & Upskill:</h1>
+                <h1 class="display-5 text-mint-dark fw-700 mb-3">Bring out the best in you</h1>
+                <ul class="list-unstyled mt-4">
+                    <li class="mb-2">Broaden your professional potential.</li>
+                    <li class="mb-2">Deepen your personal horizons.</li>
+                    <li class="mb-2">Start a skill-building plan now.</li>
+                </ul>
+                <div style="margin-top: 100px">
+                    <a href="#" class="btn btn-orange">Get Started</a>
+                    <a href="#" class="btn btn-outline-orange text-navbar">Learn More</a>
+                </div>
+            </div>
+            <div class="col-6 text-right">
+                <img src=" {{asset('assets/images/icon-beranda.png')}}" alt="icon" width="80%">
+            </div>
         </div>
     </div>
 </section>
@@ -26,47 +35,78 @@
 <section id="goal" class="text-center">
     <div class="goal-head mb-3">
         <div class="container py-5">
-            <h2>What's your learning goal ?</h2>
-            <p class="text-secondary">Define your target to get a better learning outcome</p>
+            <h1 class="display-5 text-mint-dark fw-700">Achieve your goal with Gates</h1>
         </div>
     </div>
-    <div class="goal-body py-5">
-        <div class="container">
-            <div class="d-flex">
-                <div class="mx-5" style="width: 500px">
-                    <div class="bg-light p-3 mb-3 rounded">
-                        <img src="{{asset('assets/images/illustration-mentor.png')}}" alt="goal-img" class="mb-3"
-                            style="width: 150px">
-                        <h5>Skill Up for Professional</h5>
-                        <p class="goal-info">Layanan bagi user yang sudah mempunyai pengalaman dan ingin lebih menambah
-                            pengalaman</p>
+    <div class="goal-body py-5 bg-mint">
+        <div class="row">
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="bg-white rounded content-goal pt-3 pb-5" style="width: 300px">
+                    <div class="d-flex justify-content-center align-items-center" style="min-height: 150px">
+                        <div class="image-goal mb-3 bg-mint rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 120px; height:120px">
+                            <img src="{{asset('assets/images/home/medal.png')}}" width="80px">
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-warning" style="width: 80px"><strong>Go</strong></a>
-                </div>
-                <div class="mx-5" style="width: 500px">
-                    <div class="bg-light p-3 mb-3 rounded">
-                        <img src="{{asset('assets/images/illustration-mentor.png')}}" alt="goal-img" class="mb-3"
-                            style="width: 150px">
-                        <h5>Skill Up for Beginer</h5>
-                        <p class="goal-info">Layanan bagi user yang sudah mempunyai pengalaman dan ingin lebih menambah
-                            pengalaman</p>
+                    <div class="title-goal mb-4">
+                        <h4 class="text-secondary fw-700">Certificate</h4>
                     </div>
-                    <a href="#" class="btn btn-warning" style="width: 80px"><strong>Go</strong></a>
-                </div>
-                <div class="mx-5" style="width: 500px">
-                    <div class="bg-light p-3 mb-3 rounded">
-                        <img src="{{asset('assets/images/illustration-mentor.png')}}" alt="goal-img" class="mb-3"
-                            style="width: 150px">
-                        <h5>Skill Up for Master</h5>
-                        <p class="goal-info">Layanan bagi user yang sudah mempunyai pengalaman dan ingin lebih menambah
-                            pengalaman</p>
+                    <div class="info-goal px-3">
+                        <p class="text-secondary">This Certificate is your assets!</p>
                     </div>
-                    <a href="#" class="btn btn-warning" style="width: 80px"><strong>Go</strong></a>
                 </div>
-
             </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="bg-white rounded content-goal pt-3 pb-5" style="width: 300px">
+                    <div class="d-flex justify-content-center align-items-center" style="min-height: 150px">
+                        <div class="image-goal mb-3 bg-mint rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 120px; height:120px">
+                            <img src="{{asset('assets/images/home/instructor.png')}}" width="80px">
+                        </div>
+                    </div>
+                    <div class="title-goal mb-4">
+                        <h4 class="text-secondary fw-700">Outstanding Instructor</h4>
+                    </div>
+                    <div class="info-goal px-3">
+                        <p class="text-secondary">Professional, Experts, Practitioners, Get ready for the most
+                            remarkable webinar ever!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="bg-white rounded content-goal pt-3 pb-5" style="width: 300px">
+                    <div class="d-flex justify-content-center align-items-center" style="min-height: 150px">
+                        <div class="image-goal mb-3 bg-mint rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 120px; height:120px">
+                            <img src="{{asset('assets/images/home/briefcase.png')}}" width="80px">
+                        </div>
+                    </div>
+                    <div class="title-goal mb-4">
+                        <h4 class="text-secondary fw-700">On Demand Workshop</h4>
+                    </div>
+                    <div class="info-goal px-3">
+                        <p class="text-secondary">Learn in demand skills at your convenience</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="bg-white rounded content-goal pt-3 pb-5" style="width: 300px">
+                    <div class="d-flex justify-content-center align-items-center" style="min-height: 150px">
+                        <div class="image-goal mb-3 bg-mint rounded-circle d-flex align-items-center justify-content-center"
+                            style="width: 120px; height:120px">
+                            <img src="{{asset('assets/images/home/video-camera.png')}}" width="80px">
+                        </div>
+                    </div>
+                    <div class="title-goal mb-4">
+                        <h4 class="text-secondary fw-700">Micro Classes</h4>
+                    </div>
+                    <div class="info-goal px-3">
+                        <p class="text-secondary">DailyChallenge that will change your life forever</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
-    </div>
 </section>
 
 <section id="skill" class="my-5">
@@ -124,7 +164,7 @@
 
 <section id="course">
     <div class="container h-100 d-flex align-items-center">
-        <div class="course-one">
+        <div class="course-one w-100">
             <div class="course-head">
                 <div class="course-title">
                     <h3 class="mb-1"><strong>On Demand</strong> Workshop</h3>
@@ -133,35 +173,37 @@
             </div>
             <div class="course-body pb-3">
                 <div class="d-flex justify-content-end p-3">
-                    <a href="#" class=""><strong>See All > </strong></a>
+                    <a href="#" class="nav-link text-navbar"><strong>See All > </strong></a>
                 </div>
-                <div class="course-menu d-flex">
-                    @foreach ($courses as $course)
-
-                    <div class="course-content col p-3 mx-3 rounded">
-                        <div class="course-image">
-                            <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}"
-                                class="img-thumbnail" alt="img-course" style="width: 210px; height: 200px">
-                        </div>
-                        <div class="d-flex pt-2">
-                            <div class="course-info">
-                                <h6 style="height: 90px"><strong>{{$course->name}}</strong></h6>
-                                <div class="course-date">
-                                    <span>Dinar Nugroho P</span>
-                                    <strong>{{ date('d/m/Y', strtotime($course->event_date))}}</strong>
+                <div class="row">
+                    <div class="col-4 px-2 d-flex justify-content-center">
+                        <div class="bg-white p-3 rounded" style="width: 300px">
+                            <div class="course-image">
+                                <img src="{{asset('assets/images/example-course.png')}}" class="img-thumbnail"
+                                    style="height: 200px; width: 263px">
+                            </div>
+                            <div class="d-flex justify-content-between py-2">
+                                <div class="">
+                                    <span class="text-secondary">Critical Thingking</span>
+                                </div>
+                                <div class="">
+                                    <span class="badge badge-pill badge-info">1 / 60</span>
                                 </div>
                             </div>
-                            <div class="course-btn d-flex flex-column justify-content-between text-center"
-                                style="width: 100px">
-                                <p>
-                                    seats <br><span class="badge badge-warning">{{$course->quota_student}} /
-                                        {{$course->quota_student}}</span>
-                                </p>
-                                <a href="{{route('home.detail', $course->id)}}" class="btn btn-primary btn-sm">Order</a>
+                            <div class="info-course mt-2 d-flex justify-content-between">
+                                <div class="mr-3">
+                                    <h5><b>Trello bikin semua rencana jadi lancar</b></h5>
+                                    <p class="mb-0">Akbar Maulana</p>
+                                    <span class="text-warning font-weight-bold">12/03/2021</span>
+                                </div>
+                                <div class="align-self-end" style="width: 70px">
+                                    <a href="#" class="btn btn-mint btn-sm" style="width: 65px">Order</a>
+                                    {{-- <a href="#" class="btn btn-mint btn-sm" style="width: 65px">Owned</a> --}}
+                                </div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
+
                 </div>
             </div>
         </div>
@@ -204,9 +246,9 @@
 
                 <div class="input d-flex my-5">
                     <div class="col pl-0">
-                        <input type="text" class="form-control" placeholder="Enter Your Email">
+                        <input type="text" class="form-control input-mint" placeholder="Enter Your Email">
                     </div>
-                    <button type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-mint">Submit</button>
                 </div>
             </div>
         </div>
