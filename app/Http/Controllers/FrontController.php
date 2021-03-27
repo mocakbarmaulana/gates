@@ -11,7 +11,7 @@ class FrontController extends Controller
     public function home()
     {
         $active = 'Home';
-        $courses = Course::paginate(4);
+        $courses = Course::where('status', 0)->paginate(3);
         return view('home', compact('courses', 'active'));
     }
 

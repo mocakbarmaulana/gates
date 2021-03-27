@@ -15,6 +15,10 @@ a:hover {
 }
 
 /* Text */
+.text-mint {
+    color: var(--green-mint);
+}
+
 .text-mint-dark {
     color: var(--mint-dark);
 }

@@ -26,10 +26,6 @@ section.jumbotron {
     background-color: #fff;
 }
 
-/* Goal Section */
-
-/* End Goal Section */
-
 /* Skill Section */
 .skill-body .no {
     color: #fff;
@@ -45,6 +41,10 @@ section.jumbotron {
     font-weight: 700;
 }
 /* End Skill Section */
+
+section#goal .goal-body {
+    box-sizing: border-box;
+}
 
 /* Course Section */
 section#course {
