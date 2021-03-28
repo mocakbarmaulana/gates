@@ -19,6 +19,8 @@ Route::get('/detail/{id}', [App\Http\Controllers\FrontController::class, 'detail
 Route::get('/menu', [App\Http\Controllers\FrontController::class, 'menu'])->name('home.menu');
 Route::get('/about', [App\Http\Controllers\FrontController::class, 'aboutus'])->name('home.about');
 Route::get('/career', [App\Http\Controllers\FrontController::class, 'career'])->name('home.career');
+Route::get('/learner', [App\Http\Controllers\FrontController::class, 'learner'])->name('home.learner');
+Route::get('/teacher', [App\Http\Controllers\FrontController::class, 'teacher'])->name('home.teacher');
 
 
 Auth::routes();

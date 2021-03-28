@@ -51,4 +51,15 @@ class FrontController extends Controller
         $active = '';
         return view('career', compact('active'));
     }
+
+    public function learner(){
+        $active = '';
+        return view('learners', compact('active'));
+    }
+
+    public function teacher(){
+        $active = '';
+        return view('teacher', compact('active'));
+    }
+
 }

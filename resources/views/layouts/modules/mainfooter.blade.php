@@ -20,8 +20,8 @@
                         <h5 class="text-white">Company</h5>
                     </li>
                     <li class="mb-3"><a href="#">FAQ</a></li>
-                    <li class="mb-3"><a href="#">For Learners</a></li>
-                    <li class="mb-3"><a href="#">For Teaching Partners</a></li>
+                    <li class="mb-3"><a href="{{route('home.learner')}}">For Learners</a></li>
+                    <li class="mb-3"><a href="{{route('home.teacher')}}">For Teaching Partners</a></li>
                 </ul>
             </div>
             <div class="col">
