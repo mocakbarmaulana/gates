@@ -62,4 +62,9 @@ class FrontController extends Controller
         return view('teacher', compact('active'));
     }
 
+    public function contact(){
+        $active = '';
+        return view('contact', compact('active'));
+    }
+
 }
