@@ -57,6 +57,11 @@ class Menu extends Component
                 'icon' => 'fas fa-cash-register',
                 'link' => 'payment.index',
             ],
+            [
+                'label' => 'Message',
+                'icon' => 'fas fa-envelope-open-text',
+                'link' => 'contact.index',
+            ],
         ];
     }
 

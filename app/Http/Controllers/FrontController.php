@@ -81,6 +81,7 @@ class FrontController extends Controller
         $contact->email = $request->email;
         $contact->mobile_phone = $request->mobile_phone;
         $contact->message = $request->message;
+        $contact->save();
 
         return redirect()->back()->with('success', 'Thank You for your Contacting US, we will replay you message as soon as possible');
     }
