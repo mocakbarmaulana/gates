@@ -22,6 +22,7 @@ Route::get('/career', [App\Http\Controllers\FrontController::class, 'career'])->
 Route::get('/learner', [App\Http\Controllers\FrontController::class, 'learner'])->name('home.learner');
 Route::get('/teacher', [App\Http\Controllers\FrontController::class, 'teacher'])->name('home.teacher');
 Route::get('/contact', [App\Http\Controllers\FrontController::class, 'contact'])->name('home.contact');
+Route::post('/contact', [App\Http\Controllers\FrontController::class, 'setContact'])->name('home.setcontact');
 
 
 Auth::routes();

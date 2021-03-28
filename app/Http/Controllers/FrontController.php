@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\contacts;
 use App\Models\Course;
 use App\Models\Skill;
 use Illuminate\Http\Request;
@@ -65,6 +66,23 @@ class FrontController extends Controller
     public function contact(){
         $active = '';
         return view('contact', compact('active'));
+    }
+
+    public function setContact(Request $request){
+        $this->validate($request, [
+            'name' => 'required|string|max:150',
+            'email' => 'required|email',
+            'mobile_phone' => 'required|integer',
+            'message' => 'required|string',
+        ]);
+
+        $contact = new contacts();
+        $contact->name = $request->name;
+        $contact->email = $request->email;
+        $contact->mobile_phone = $request->mobile_phone;
+        $contact->message = $request->message;
+
+        return redirect()->back()->with('success', 'Thank You for your Contacting US, we will replay you message as soon as possible');
     }
 
 }
