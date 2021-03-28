@@ -88,4 +88,9 @@ class FrontController extends Controller
         return redirect()->back()->with('success', 'Thank You for your Contacting US, we will replay you message as soon as possible');
     }
 
+    public function faq(){
+        $active = '';
+        return view('faq', compact('active'));
+    }
+
 }

@@ -17,10 +17,10 @@
                         href="{{route('home.menu')}}">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="#">For Teacher</a>
+                    <a class="nav-link text-navbar" href="{{route('home.learner')}}">For Teacher</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="#">For Learner</a>
+                    <a class="nav-link text-navbar" href="{{route('home.learner')}}">For Learner</a>
                 </li>
 
                 @if (Auth::guard('member')->check())
