@@ -19,26 +19,27 @@
                 <img src="{{asset('assets/images/learners.jpg')}}" width="100%" alt="image-learners">
             </div>
             <div class="col">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit omnis quod, voluptate nihil
-                    expedita,
-                    maiores unde magni eos ullam dolorem ab dolore delectus libero cum in ex voluptas quam, explicabo
-                    dolorum blanditiis illum suscipit odit! Consectetur, voluptatem obcaecati sunt est nam architecto
-                    atque
-                    perspiciatis quas reiciendis doloribus! Nemo officiis itaque quaerat ex eos assumenda fugiat, eius
-                    iusto
-                    ipsum molestias maiores esse eum minus similique quasi odit consequatur commodi, omnis voluptatibus
-                    placeat, repellat nihil distinctio. Voluptas, ad accusantium? Voluptas obcaecati est repellat
-                    repellendus in libero excepturi vel quasi ullam nobis, quisquam harum eaque beatae distinctio quos
-                    accusantium consequatur nesciunt fugit qui placeat dolore quis dolor debitis. Sed temporibus
-                    suscipit
-                    dicta. Ullam, esse. Iusto molestiae natus voluptatem alias facilis in dolores laudantium. Adipisci
-                    molestiae aliquam animi labore ut beatae, vel nemo qui praesentium deserunt? Eius assumenda tempore
-                    voluptas vitae voluptatibus sed sit praesentium harum enim aut, illo nemo, doloremque asperiores
-                    consequatur, quasi odio expedita vero provident suscipit ad alias recusandae quas nulla! Provident
-                    nesciunt tenetur labore! Inventore nisi, voluptatem consequatur omnis quod assumenda at sequi
-                    delectus
-                    quisquam! Reiciendis facilis delectus ea unde iusto rem aliquam ipsam optio quae possimus amet autem
-                    vitae doloremque, totam nemo sequi. Ut recusandae quod soluta alias cupiditate.</p>
+                <p>
+                    <b>74% of heavy learners are more likely to know where they want to go in their career.</b>
+                    Heavy learners spend 5 hours a week to learn. Sounds terrifying?
+                </p><br>
+                <p>
+                    <b>We heard you.</b>
+                    Constantly telling you to learn is easier said than done. In our busy lives, making xtime for
+                    learning is a perpetual challenge. Let us help you settle in your learning journey.
+                </p><br>
+
+                <p>
+                    <b>Use Sims Up to rediscover your skills – all your skills:</b>
+                    Those you have, those you need, those you want. Evaluate them, reshape them, nurture them.Science
+                    proves that it is never too late to learn. Can’t teach an old dog new tricks? Not true!
+                </p><br>
+
+                <p>
+                    <b>
+                        At Sims Up, we want you to create a learning habit – probably the most powerful habit of all.
+                    </b>
+                </p>
             </div>
         </div>
     </div>
@@ -48,29 +49,30 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit omnis quod, voluptate nihil
-                    expedita,
-                    maiores unde magni eos ullam dolorem ab dolore delectus libero cum in ex voluptas quam, explicabo
-                    dolorum blanditiis illum suscipit odit! Consectetur, voluptatem obcaecati sunt est nam architecto
-                    atque
-                    perspiciatis quas reiciendis doloribus! Nemo officiis itaque quaerat ex eos assumenda fugiat, eius
-                    iusto
-                    ipsum molestias maiores esse eum minus similique quasi odit consequatur commodi, omnis voluptatibus
-                    placeat, repellat nihil distinctio. Voluptas, ad accusantium? Voluptas obcaecati est repellat
-                    repellendus in libero excepturi vel quasi ullam nobis, quisquam harum eaque beatae distinctio quos
-                    accusantium consequatur nesciunt fugit qui placeat dolore quis dolor debitis. Sed temporibus
-                    suscipit
-                    dicta. Ullam, esse. Iusto molestiae natus voluptatem alias facilis in dolores laudantium. Adipisci
-                    molestiae aliquam animi labore ut beatae, vel nemo qui praesentium deserunt? Eius assumenda tempore
-                    voluptas vitae voluptatibus sed sit praesentium harum enim aut, illo nemo, doloremque asperiores
-                    consequatur, quasi odio expedita vero provident suscipit ad alias recusandae quas nulla! Provident
-                    nesciunt tenetur labore! Inventore nisi, voluptatem consequatur omnis quod assumenda at sequi
-                    delectus
-                    quisquam! Reiciendis facilis delectus ea unde iusto rem aliquam ipsam optio quae possimus amet autem
-                    vitae doloremque, totam nemo sequi. Ut recusandae quod soluta alias cupiditate.</p>
+                <p>
+                    <b>The forgetting curve exists, but it cannot beat you.</b><br>
+                    We did not invent the forgetting curve. Of course, we did not. Hermann Ebbinghaus, a 19th- Century
+                    German psychologist, did. In short, it shows the speed at which we forget information if we don’t do
+                    anything to retain it.
+                </p>
+                <p>
+                    The forgetting curve has been and will still be debated but there is a consensus around its key
+                    principles. In the world of skills, this means that whatever you learn will be forgotten if you
+                    don’t keep practicing.
+                </p>
+                <p>
+                    <b>Nobody wants that to happen, right?</b><br>
+                    Constantly telling you to learn is easier said than done. In our busy lives, making xtime for
+                    learning is a perpetual challenge. Let us help you settle in your learning journey.
+                </p>
+                <p>
+                    <b>
+                        At Sims Up, we tell you what’s good to learn for you. And when. And how. And with whom.
+                    </b>
+                </p>
             </div>
             <div class="col d-flex align-items-center">
-                <img src="{{asset('assets/images/learners2.jpg')}}" width="100%" alt="image-learners">
+                <img src="{{asset('assets/images/madam.png')}}" width="100%" alt="image-learners">
             </div>
         </div>
     </div>
@@ -83,26 +85,39 @@
                 <img src="{{asset('assets/images/learners1.jpg')}}" width="100%" alt="image-learners">
             </div>
             <div class="col">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Impedit omnis quod, voluptate nihil
-                    expedita,
-                    maiores unde magni eos ullam dolorem ab dolore delectus libero cum in ex voluptas quam, explicabo
-                    dolorum blanditiis illum suscipit odit! Consectetur, voluptatem obcaecati sunt est nam architecto
-                    atque
-                    perspiciatis quas reiciendis doloribus! Nemo officiis itaque quaerat ex eos assumenda fugiat, eius
-                    iusto
-                    ipsum molestias maiores esse eum minus similique quasi odit consequatur commodi, omnis voluptatibus
-                    placeat, repellat nihil distinctio. Voluptas, ad accusantium? Voluptas obcaecati est repellat
-                    repellendus in libero excepturi vel quasi ullam nobis, quisquam harum eaque beatae distinctio quos
-                    accusantium consequatur nesciunt fugit qui placeat dolore quis dolor debitis. Sed temporibus
-                    suscipit
-                    dicta. Ullam, esse. Iusto molestiae natus voluptatem alias facilis in dolores laudantium. Adipisci
-                    molestiae aliquam animi labore ut beatae, vel nemo qui praesentium deserunt? Eius assumenda tempore
-                    voluptas vitae voluptatibus sed sit praesentium harum enim aut, illo nemo, doloremque asperiores
-                    consequatur, quasi odio expedita vero provident suscipit ad alias recusandae quas nulla! Provident
-                    nesciunt tenetur labore! Inventore nisi, voluptatem consequatur omnis quod assumenda at sequi
-                    delectus
-                    quisquam! Reiciendis facilis delectus ea unde iusto rem aliquam ipsam optio quae possimus amet autem
-                    vitae doloremque, totam nemo sequi. Ut recusandae quod soluta alias cupiditate.</p>
+                <p>
+                    <b>#TheNewWorkforce</b>
+                </p><br>
+                <p>
+                    <b>
+                        Ever wondered what #theNewWorkforce is going to look like? Ever wondered what kind of job you
+                        are
+                        likely to have in a not-so-distant future?
+                    </b>
+                </p><br>
+                <p>
+
+                    Yesterday’s workforce was very much static. Your academic background and initial professional
+                    experiences were leading you into a specific path with very specific skills in very few areas.
+                    Forget it.
+                </p><br>
+                <p>
+                    Tomorrow’s workforce will require you to be agile in the true sense of the word. Evolving within a
+                    rapidly changing workplace, you will have to be flexible, adjustable, malleable. Your greatest skill
+                    will lie in your ability to learn and relearn.
+                </p>
+                <p><br>
+                    Experts predict that the new workforce will be rewarded for skills and abilities. Not its academic
+                    diploma, regardless of prestige. Your skills are your greatest asset and the good news is, it is
+                    well within your control to grow them!
+                </p><br>
+                <p>
+                    <b>
+                        At Sims Up, we believe the future of education is all about making learning practical,
+                        applicable
+                        and relevant.
+                    </b>
+                </p>
             </div>
         </div>
     </div>
