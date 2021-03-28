@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\contacts;
 use App\Models\Course;
 use App\Models\Skill;
+use App\Models\Whishlists;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -39,8 +40,9 @@ class FrontController extends Controller
         }])->find($id);
 
         $othercourse = Course::where('status', 0)->withCount('orders')->paginate(6);
+        $wishlist = Whishlists::where('student_id', auth('member')->id())->where('course_id', $id)->first();
 
-        return view('detailCourse', compact('course', 'active', 'othercourse'));
+        return view('detailCourse', compact('course', 'active', 'othercourse', 'wishlist'));
     }
 
     public function aboutus(){

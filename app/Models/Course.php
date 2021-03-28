@@ -31,5 +31,9 @@ class Course extends Model
         return $this->hasMany(course_details::class);
     }
 
+    public function wishlists(){
+        return $this->hasMany(Whishlists::class);
+    }
+
 
 }

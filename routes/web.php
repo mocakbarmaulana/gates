@@ -53,6 +53,9 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
     Route::post('/order/{id}', [App\Http\Controllers\Member\MemberController::class, 'setOrder'])->name('member.setorder');
     Route::post('/payment', [App\Http\Controllers\Member\MemberController::class, 'payment'])->name('member.payment');
 
+    Route::get('/wishlist', [App\Http\Controllers\Member\MemberController::class, 'getWishlist'])->name('member.wishlist');
+    Route::post('/wishlist/{id}', [App\Http\Controllers\Member\MemberController::class, 'setWishlist'])->name('member.setwishlist');
+    Route::delete('/wishlist/{id}', [App\Http\Controllers\Member\MemberController::class, 'destroyWishlist'])->name('member.destroywishlist');
 });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

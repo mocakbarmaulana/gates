@@ -21,8 +21,8 @@
                     <li class="mb-2">Start a skill-building plan now.</li>
                 </ul>
                 <div style="margin-top: 100px">
-                    <a href="#" class="btn btn-orange">Get Started</a>
-                    <a href="#" class="btn btn-outline-orange text-navbar">Learn More</a>
+                    <a href="{{route('home.menu')}}" class="btn btn-orange">Get Started</a>
+                    <a href="{{route('home.about')}}" class="btn btn-outline-orange text-navbar">Learn More</a>
                 </div>
             </div>
             <div class="col-6 text-right">

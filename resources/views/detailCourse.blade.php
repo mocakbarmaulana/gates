@@ -37,10 +37,6 @@
                         <span>{{ $course->event }}</span>
                     </li>
                     <li class="my-3">
-                        <p class="m-0"><strong>Type Event : </strong></p>
-                        <span>{{ $course->event }}</span>
-                    </li>
-                    <li class="my-3">
                         <p class="m-0"><strong>Price : </strong></p>
                         <span class="text-warning font-weight-bold">${{ number_format($course->price)}}</span>
                     </li>
@@ -57,13 +53,33 @@
                         </div>
                     </li>
                 </ul>
+                @if (empty($wishlist))
+                <div>
+                    <form action="{{route('member.setwishlist', $course->id)}}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-warning btn-block">
+                            <i class="far fa-bookmark"></i> Wishlist
+                        </button>
+                    </form>
+                </div>
+                @else
+                <div>
+                    <form action="{{route('member.destroywishlist', $wishlist->id)}}" method="POST">
+                        @method('DELETE')
+                        @csrf
+                        <button type="submit" class="btn btn-warning btn-block">
+                            <i class="fas fa-bookmark"></i> Wishlist
+                        </button>
+                    </form>
+                </div>
+                @endif
                 @if (!$course->orders->isEmpty())
                 <div>
                     <a href="{{route('member.getorder')}}" class="btn btn-info btn-block">Owned</a>
                 </div>
                 @else
-                <button type="button" class="btn btn-mint btn-block" data-idcourse="{{$course->id}}" data-toggle="modal"
-                    data-target="#btnOrder">Order</button>
+                <button type="button" class="btn btn-mint btn-block btn-order-course" data-idcourse="{{$course->id}}"
+                    data-toggle="modal" data-target="#btnOrder">Order</button>
                 @endif
             </div>
         </div>
@@ -72,6 +88,7 @@
             <span>{{ $course->description }}</span>
         </div>
     </div>
+
     <div class="row bg-mint pb-5 pt-3 rounded">
         <div class="col-12 mb-3">
             <h4>Other Course</h4>
@@ -145,11 +162,11 @@
 @section('js')
 <script>
     $(".btn-order-course").on("click", function(){
-const id = $(this)[0].dataset.idcourse;
-$(".form-order-course").attr('action', `/member/order/${id}`);
-$detail = $(".detail_course").val();
-$(".input-detail").val($detail);
-});
+        const id = $(this)[0].dataset.idcourse;
+        $(".form-order-course").attr('action', `/member/order/${id}`);
+        $detail = $(".detail_course").val();
+        $(".input-detail").val($detail);
+    });
 
 </script>
 @endsection

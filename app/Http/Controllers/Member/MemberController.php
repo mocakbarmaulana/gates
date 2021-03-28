@@ -10,6 +10,7 @@ use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Skill;
 use App\Models\Student;
+use App\Models\Whishlists;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -185,5 +186,30 @@ class MemberController extends Controller
         $trophys = Achievement::where('student_id', $id)->get();
 
         return view('member.trophy', compact('active', 'trophys'));
+    }
+
+    public function setWishlist(Request $request, $id){
+        $wishlist = new Whishlists();
+        $wishlist->course_id = $id;
+        $wishlist->student_id = Auth::guard('member')->id();
+        $wishlist->save();
+
+        return redirect()->back()->with('success', 'berhasil ditambahkan ke Wishlist');
+    }
+
+    public function destroyWishlist($id){
+        // $wishlist = Whishlists::find($id);
+        Whishlists::destroy($id);
+
+        return redirect()->back();
+    }
+
+    public function getWishlist(){
+        $active = "Wishlist";
+        $wishlists = Whishlists::where('student_id', auth('member')->id())->get();
+
+        // dd($wishlists[0]);
+
+        return view('wishlist', compact('active', 'wishlists'));
     }
 }
