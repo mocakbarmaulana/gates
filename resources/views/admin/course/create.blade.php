@@ -61,15 +61,16 @@
             </div>
             <div class="form-group">
                 <label>Teacher Name</label>
-                <input type="text" class="form-control input-mint" name="teacher" required>
+                <input type="text" class="form-control input-mint" name="teacher" value="{{old('teacher')}}" required>
             </div>
             <div class="form-group">
                 <label>Quota Event</label>
-                <input type="text" class="form-control input-mint" name="quota" required>
+                <input type="text" class="form-control input-mint" name="quota" value="{{old('quota')}}" required>
             </div>
             <div class="form-group">
                 <label>Type Workshop</label>
                 <select name="type" class="form-control input-mint type-event" required>
+                    <option selected>Choose</option>
                     <option value="online">Online</option>
                     <option value="offline">Offline</option>
                 </select>
@@ -103,20 +104,24 @@
                     <div class="form-row">
                         <div class="col form-group">
                             <label>Event Date</label>
-                            <input type="date" class="form-control input-mint" name="event_date[1]">
+                            <input type="date" class="form-control input-mint" name="event_date[1]"
+                                value="{{old('event_date[1]')}}">
                         </div>
                         <div class="col form-group">
                             <label>Event Time</label>
-                            <input type="time" class="form-control input-mint" name="event_time[1]">
+                            <input type="time" class="form-control input-mint" name="event_time[1]"
+                                value="{{old('event_time[1]')}}">
                         </div>
                     </div>
-                    <div class="form-group event-offline">
+                    <div class="form-group event-offline" style="display: none">
                         <label>Event Location</label>
-                        <input type="text" class="form-control input-mint" name="event_location[1]">
+                        <input type="text" class="form-control input-mint" name="event_location[1]"
+                            value="{{old('event_location[1]')}}">
                     </div>
                     <div class="form-group event-online" style="display: none">
                         <label>Link Workshop Online</label>
-                        <input type="text" class="form-control input-mint" name="event_link[1]">
+                        <input type="text" class="form-control input-mint" name="event_link[1]"
+                            value="{{old('event_link[1]')}}">
                     </div>
                 </div>
             </div>
@@ -128,20 +133,24 @@
                 <div class="form-row">
                     <div class="col form-group">
                         <label>Event Date</label>
-                        <input type="date" class="form-control input-mint" name="event_date[2]">
+                        <input type="date" class="form-control input-mint" name="event_date[2]"
+                            value="{{old('event_date[2]')}}">
                     </div>
                     <div class="col form-group">
                         <label>Event Time</label>
-                        <input type="time" class="form-control input-mint" name="event_time[2]">
+                        <input type="time" class="form-control input-mint" name="event_time[2]"
+                            value="{{old('event_time[2]')}}">
                     </div>
                 </div>
-                <div class="form-group event-offline">
+                <div class="form-group event-offline" style="display: none">
                     <label>Event Location</label>
-                    <input type="text" class="form-control input-mint" name="event_location[2]">
+                    <input type="text" class="form-control input-mint" name="event_location[2]"
+                        value="{{old('event_location[2]')}}">
                 </div>
                 <div class="form-group event-online" style="display: none">
                     <label>Link Workshop Online</label>
-                    <input type="text" class="form-control input-mint" name="event_link[2]">
+                    <input type="text" class="form-control input-mint" name="event_link[2]"
+                        value="{{old('event_link[2]')}}">
                 </div>
             </div>
         </div>

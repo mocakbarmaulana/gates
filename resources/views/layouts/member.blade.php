@@ -38,19 +38,18 @@
                     <li class="nav-item">
                         <a class="nav-link text-navbar" href="#">Menu</a>
                     </li>
-                    {{-- <li class="nav-item">
-                        <a class="nav-link text-navbar" href="#">Contact us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-navbar" href="#">About us</a>
-                    </li> --}}
                     <li class="nav-item">
                         <a class="nav-link text-navbar" href="#">For Teacher</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-navbar" href="#">For Learner</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link text-navbar" href="{{route('member.wishlist')}}">
+                            <i class="fas fa-bookmark"></i>
+                            Wishlist
+                        </a>
+                    </li>
                     @if (Auth::guard('member')->check())
                     <li class="nav-item d-flex align-items-center ml-3">
                         <span class="profile">

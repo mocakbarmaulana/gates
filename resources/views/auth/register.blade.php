@@ -21,7 +21,7 @@
     <div class="register-box">
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="/" class="h1"><b>Sims-up</b></a>
+                <a href="/" class="h1"><b>Gates</b></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Register a new admin</p>

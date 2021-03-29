@@ -69,7 +69,8 @@
                 <button class="btn btn-block btn-warning font-weight-bold" data-toggle="modal"
                     data-target="#staticBackdrop">Confirm Payment</button>
                 @else
-                <button class="btn btn-block bg-green-mint order-filter font-weight-bold">See Course</button>
+                <a href="{{route('member.getdetailcourse', $order->course->id)}}"
+                    class="btn btn-block bg-green-mint order-filter font-weight-bold">See Course</a>
                 @endif
             </div>
         </div>

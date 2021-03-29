@@ -29,7 +29,6 @@ class FrontController extends Controller
             $q->where('skill_id', $request);
         })->where('status', 0)->paginate(12);
 
-
         return view('menucourse', compact('active', 'courses', 'skills', 'q'));
     }
 

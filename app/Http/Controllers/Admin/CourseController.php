@@ -37,7 +37,16 @@ class CourseController extends Controller
             'quota' => 'required|integer',
             'skill' => 'required|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'event_link[1]' => 'required|string',
+            'event_date[1]' => 'required|string',
+            'event_time[1]' => 'required|string',
+            'event_location[1]' => 'required|string',
+            'event_link[2]' => 'nullable|string',
+            'event_date[2]' => 'nullable|string',
+            'event_time[2]' => 'nullable|string',
+            'event_location[2]' => 'nullable|string',
         ]);
+
 
         $image = Helper::uploadImage($request->image, null, 'course');
 
