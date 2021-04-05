@@ -46,7 +46,7 @@ class LearnerController extends Controller
         $this->validate($request, [
             'name' => 'required|string|max:150',
             'email' => 'required|unique:students',
-            'phone_number' => 'required|integer',
+            'phone_number' => 'required|string',
             'address' => 'required|string|max:250',
             'password' => 'required|confirmed|min:8',
         ]);

@@ -207,7 +207,14 @@
             </div>
         </div> --}}
 
-
+    
+        @if($courses->isEmpty())
+        <div class="col-12">
+        <div class="alert alert-warning" role="alert">
+       Tidak ada course
+        </div>
+        </div>
+        @endif
         @foreach ($courses as $course)
         <div class="col-4 px-2 d-flex justify-content-center">
             <div class="bg-white p-3 rounded" style="width: 300px">
