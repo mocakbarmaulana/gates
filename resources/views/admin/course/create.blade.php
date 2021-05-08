@@ -48,7 +48,7 @@
                 @error('description')
                 <span class="text-danger text-sm">*{{$message}}</span>
                 @enderror
-                <textarea class="form-control input-mint" id="descriptionCourse" rows="5" required
+                <textarea class="form-control input-mint ckeditor" id="descriptionCourse" rows="5" required
                     name="description">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
@@ -87,6 +87,20 @@
                     </div>
                     <select class="custom-select input-mint" id="skillInput" name="skill" required>
                         <option selected>Choose...</option>
+                        @foreach ($skills as $skill)
+                        <option value="{{$skill->id}}">{{$skill->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Subskill</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text" for="skillInput">Options</label>
+                    </div>
+                    <select class="custom-select input-mint" id="subskill" name="subkill" required>
                         @foreach ($skills as $skill)
                         <option value="{{$skill->id}}">{{$skill->name}}</option>
                         @endforeach
@@ -166,12 +180,14 @@
 @endsection
 
 @section('js')
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
     $("#customFile").change(function(){
-    const name = $(this.files[0])[0].name;
-    $(".image-text").text(name);
-    readUrlImage($(this));
-});
+        const name = $(this.files[0])[0].name;
+        $(".image-text").text(name);
+        readUrlImage($(this));
+    });
 
 
 function readUrlImage(input){
@@ -196,6 +212,34 @@ $(".type-event").on('change', function(){
         $('.event-offline').css('display', 'block');
     }
 })
+
+$("#skillInput").on('change', async function() {
+    const id = this.value;
+    const subskillList = document.querySelector('#subskill');
+    try {
+        const subskill = await fetchSubskill(id);
+
+        const result = updateSubskill(subskill);
+
+        subskillList.innerHTML = result;
+
+    } catch (error) {
+        console.error(error);
+    }
+})
+
+const fetchSubskill = (id) => {
+   return fetch(`http://127.0.0.1:8000/api/subskill/${id}`)
+    .then(res => res.json());
+}
+
+const updateSubskill = (subskills) => {
+    let content = '';
+    subskills.forEach(e => {
+        content += `<option value="${e.id}">${e.name}</option>`
+    });
+    return content;
+}
 
 </script>
 @endsection

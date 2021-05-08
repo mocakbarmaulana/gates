@@ -144,8 +144,6 @@ class CourseController extends Controller
         $course = Course::withCount(['orders'])->find($id);
 
         if($course->orders_count == 0){
-
-            dd('oke');
             Storage::delete('/public/assets/images/course/'.$course->image_course);
             $course->delete();
 

@@ -132,4 +132,11 @@ class SkillController extends Controller
 
        return redirect()->back()->with('error', 'Skill sedang digunakan');
     }
+
+    public function getskillsub($id)
+    {
+        $subskill = Subskills::where('skill_id', $id)->orderBy('id', 'ASC')->get();
+
+        return json_encode($subskill);
+    }
 }
