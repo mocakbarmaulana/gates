@@ -22,7 +22,7 @@
                     <img src="{{asset('assets/images/no-image.png')}}" class="img-fluid image-preview image-thumbnail"
                         style="min-height: 500px" alt="no-image" width="100%">
                 </div>
-                <div class="form-group my-5">
+                <div class="form-group mt-5">
                     <label for="customFile">Upload Image</label>
                     @error('image')
                     <span class="text-danger text-sm">*{{$message}}</span>
@@ -30,6 +30,60 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input input-mint" id="customFile" name="image" required>
                         <label class="custom-file-label image-text" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="col container-workshop">
+                    <div class="workshop-box">
+                        <div class='offline-workshop'>
+                            <h6>Event Ke-1</h6>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Event Date</label>
+                                    <input type="date" class="form-control input-mint" name="event_date[1]"
+                                        value="{{old('event_date[1]')}}">
+                                </div>
+                                <div class="col form-group">
+                                    <label>Event Time</label>
+                                    <input type="time" class="form-control input-mint" name="event_time[1]"
+                                        value="{{old('event_time[1]')}}">
+                                </div>
+                            </div>
+                            <div class="form-group event-offline" style="display: none">
+                                <label>Event Location</label>
+                                <input type="text" class="form-control input-mint" name="event_location[1]"
+                                    value="{{old('event_location[1]')}}">
+                            </div>
+                            <div class="form-group event-online" style="display: none">
+                                <label>Link Workshop Online</label>
+                                <input type="text" class="form-control input-mint" name="event_link[1]"
+                                    value="{{old('event_link[1]')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class='offline-workshop'>
+                        <h6>Event Ke-2</h6>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Event Date</label>
+                                <input type="date" class="form-control input-mint" name="event_date[2]"
+                                    value="{{old('event_date[2]')}}">
+                            </div>
+                            <div class="col form-group">
+                                <label>Event Time</label>
+                                <input type="time" class="form-control input-mint" name="event_time[2]"
+                                    value="{{old('event_time[2]')}}">
+                            </div>
+                        </div>
+                        <div class="form-group event-offline" style="display: none">
+                            <label>Event Location</label>
+                            <input type="text" class="form-control input-mint" name="event_location[2]"
+                                value="{{old('event_location[2]')}}">
+                        </div>
+                        <div class="form-group event-online" style="display: none">
+                            <label>Link Workshop Online</label>
+                            <input type="text" class="form-control input-mint" name="event_link[2]"
+                                value="{{old('event_link[2]')}}">
+                        </div>
                     </div>
                 </div>
         </div>
@@ -94,85 +148,20 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="form-group subskill-box" style="display: none">
                 <label>Subskill</label>
-                <div class="input-group mb-3">
+                <div class="input-group mb-5">
                     <div class="input-group-prepend">
                         <label class="input-group-text" for="skillInput">Options</label>
                     </div>
                     <select class="custom-select input-mint" id="subskill" name="subkill" required>
-                        @foreach ($skills as $skill)
-                        <option value="{{$skill->id}}">{{$skill->name}}</option>
-                        @endforeach
                     </select>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="workshop-box">
-                <div class='offline-workshop'>
-                    <h6>Event Ke-1</h6>
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <label>Event Date</label>
-                            <input type="date" class="form-control input-mint" name="event_date[1]"
-                                value="{{old('event_date[1]')}}">
-                        </div>
-                        <div class="col form-group">
-                            <label>Event Time</label>
-                            <input type="time" class="form-control input-mint" name="event_time[1]"
-                                value="{{old('event_time[1]')}}">
-                        </div>
-                    </div>
-                    <div class="form-group event-offline" style="display: none">
-                        <label>Event Location</label>
-                        <input type="text" class="form-control input-mint" name="event_location[1]"
-                            value="{{old('event_location[1]')}}">
-                    </div>
-                    <div class="form-group event-online" style="display: none">
-                        <label>Link Workshop Online</label>
-                        <input type="text" class="form-control input-mint" name="event_link[1]"
-                            value="{{old('event_link[1]')}}">
-                    </div>
-                </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
-        </div>
-
-        <div class="col">
-            <div class='offline-workshop'>
-                <h6>Event Ke-2</h6>
-                <div class="form-row">
-                    <div class="col form-group">
-                        <label>Event Date</label>
-                        <input type="date" class="form-control input-mint" name="event_date[2]"
-                            value="{{old('event_date[2]')}}">
-                    </div>
-                    <div class="col form-group">
-                        <label>Event Time</label>
-                        <input type="time" class="form-control input-mint" name="event_time[2]"
-                            value="{{old('event_time[2]')}}">
-                    </div>
-                </div>
-                <div class="form-group event-offline" style="display: none">
-                    <label>Event Location</label>
-                    <input type="text" class="form-control input-mint" name="event_location[2]"
-                        value="{{old('event_location[2]')}}">
-                </div>
-                <div class="form-group event-online" style="display: none">
-                    <label>Link Workshop Online</label>
-                    <input type="text" class="form-control input-mint" name="event_link[2]"
-                        value="{{old('event_link[2]')}}">
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col my-4">
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </div>
     </div>
     </form>
@@ -222,6 +211,8 @@ $("#skillInput").on('change', async function() {
         const result = updateSubskill(subskill);
 
         subskillList.innerHTML = result;
+
+        $('.subskill-box').show();
 
     } catch (error) {
         console.error(error);
