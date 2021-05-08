@@ -82,6 +82,12 @@ class SubskillController extends Controller
             'subskills' => 'required|string|max:50|unique:subskills,name,'.$id,
         ]);
 
+        $course = Subskills::withCount(['courses'])->find($id);
+
+        if($course->courses_count > 0) {
+            return redirect()->back()->with('error', 'Subskill sedang digunakan');
+        };
+
         $request->request->add(['slug' => $request->subskills]);
 
         $subskills = Subskills::find($id);
@@ -100,8 +106,13 @@ class SubskillController extends Controller
      */
     public function destroy($id)
     {
-        Subskills::destroy($id);
+        $course = Subskills::withCount(['courses'])->find($id);
 
-        return redirect()->back()->with('success', 'subskill berhasil dihapus');
+        if($course->courses_count == 0) {
+            $course->delete();
+            return redirect()->back()->with('success', 'subskill berhasil dihapus');
+        };
+
+        return redirect()->back()->with('error', 'Subskill sedang digunakan');
     }
 }
