@@ -152,9 +152,9 @@
                 <label>Subskill</label>
                 <div class="input-group mb-5">
                     <div class="input-group-prepend">
-                        <label class="input-group-text" for="skillInput">Options</label>
+                        <label class="input-group-text">Options</label>
                     </div>
-                    <select class="custom-select input-mint" id="subskill" name="subkill" required>
+                    <select class="custom-select input-mint" id="subskill" name="subskill" required>
                     </select>
                 </div>
             </div>

@@ -36,17 +36,9 @@ class CourseController extends Controller
             'teacher' => 'required|string',
             'quota' => 'required|integer',
             'skill' => 'required|integer',
+            'subskill' => 'required|integer',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
-            // 'event_link[1]' => 'nullable|string',
-            // 'event_date[1]' => 'required|string',
-            // 'event_time[1]' => 'required|string',
-            // 'event_location[1]' => 'nullable|string',
-            // 'event_link[2]' => 'nullable|string',
-            // 'event_date[2]' => 'nullable|string',
-            // 'event_time[2]' => 'nullable|string',
-            // 'event_location[2]' => 'nullable|string',
         ]);
-
 
         $image = Helper::uploadImage($request->image, null, 'course');
 
@@ -58,6 +50,8 @@ class CourseController extends Controller
         $course->teacher = $request->teacher;
         $course->price = $request->price;
         $course->event = $request->type;
+        $course->skill_id = $request->skill;
+        $course->subskill_id = $request->subskill;
         $course->status = false;
         $course->save();
 
@@ -87,12 +81,13 @@ class CourseController extends Controller
 
     public function update(Request $request, $id){
         $this->validate($request, [
-            'name' => 'required|unique:courses|max:150',
+            'name' => 'required|string|max:150|unique:courses,name,'.$id,
             'description' => 'required|string',
             'price' => 'required|integer',
             'teacher' => 'required|string',
             'quota' => 'required|integer',
             'skill' => 'required|integer',
+            'subskill' => 'required|integer',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -107,6 +102,7 @@ class CourseController extends Controller
         $course->price = $request->price;
         $course->teacher = $request->teacher;
         $course->skill_id = $request->skill;
+        $course->subskill_id = $request->subskill;
         $course->save();
 
         $courseDetails = course_details::where('course_id', $id)->get();
