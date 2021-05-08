@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('head')
-<title>List Skill</title>
+<title>List Subskill</title>
 @endsection
 
 @section('content')
@@ -9,6 +9,7 @@
     <ol class="breadcrumb">
         <li class="breadcrumb-item">Dashboard</li>
         <li class="breadcrumb-item active"><a href="{{route('skill.index')}}">{{$active}}</a></li>
+        <li class="breadcrumb-item active"><a>subskill</a></li>
     </ol>
 </nav>
 <div class="mx-3 p-2 bg-light">
@@ -26,18 +27,19 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header bg-dark">
-                    <h5>Tambah Skill</h5>
+                    <h5>Tambah Subkill</h5>
                 </div>
                 <div class="card-body">
-                    <form action="{{route('skill.store')}}" method="POST">
+                    <form action="{{route('subskill.store')}}" method="POST">
                         @csrf
-                        @error('skill')
+                        <input type="hidden" name="skill_id" value="{{$skill->id}}">
+                        @error('name')
                         <span class="text-danger">*{{$message}}</span>
                         @enderror
                         <div class="form-group">
-                            <label for="nameSkill">Name Skill</label>
-                            <input type="text" name="skill" value="{{old('skill')}}" class="form-control"
-                                id="nameSkill">
+                            <label for="nameSubskill">Name Subkill</label>
+                            <input type="text" name="name" value="{{old('name')}}" class="form-control"
+                                id="nameSubskill">
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-dark btn-block">Submit</button>
@@ -49,40 +51,43 @@
         <div class="col ml-5">
             <div class="card">
                 <div class="card-header bg-dark">
-                    <h5>List Skill</h5>
+                    <h5>{{$skill->name}}</h5>
                 </div>
                 <div class="card-body">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
                                 <th scope="col" style="width: 20px">No.</th>
-                                <th scope="col">Skill</th>
-                                {{-- <th scope="col" class="text-center">Dibuat</th> --}}
+                                <th scope="col">Subskill</th>
                                 <th scope="col" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($skills as $skill)
+                            @forelse ($subskills as $item)
                             <tr>
                                 <th scope="row">
-                                    {{($skills->currentPage() - 1) * $skills->perPage() + $loop->iteration}}.</th>
-                                <td>{{$skill->name}}</td>
+                                    {{($subskills->currentPage() - 1) * $subskills->perPage() + $loop->iteration}}.</th>
+                                <td>{{$item->name}}</td>
                                 <td class="text-center">
-                                    <a href="{{route('skill.edit', $skill->id)}}"
-                                        class="btn btn-primary btn-sm">Edit</a>
-                                    <a href="{{route('skill.show', $skill->id)}}"
-                                        class="btn btn-warning btn-sm">Detail</a>
+                                    <button type="button" class="btn btn-primary btn-sm btn-edit-subskill"
+                                        data-idsubkill="{{$item->id}}" data-toggle="modal"
+                                        data-target="#btnEditSubskill">Edit</button>
                                     <button type="button" class="btn btn-secondary btn-sm btn-delete-skill"
-                                        data-idskill="{{$skill->id}}" data-toggle="modal"
-                                        data-target="#btnDeleteSkill">Delete</button>
+                                        data-idsubkill="{{$item->id}}" data-toggle="modal"
+                                        data-target="#btnDeleteSubskill">Delete</button>
                                 </td>
+
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="3" class="text-center">tidak ada data</td>
+                            </tr>
+                            @endforelse
                         </tbody>
                     </table>
                 </div>
                 <div class="px-4">
-                    {{$skills->links()}}
+                    {{$subskills->links()}}
                 </div>
             </div>
         </div>
@@ -92,15 +97,9 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="btnDeleteSkill" aria-hidden="true">
+<div class="modal fade" id="btnDeleteSubskill" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
-            {{-- <div class="modal-header">
-                <h5 class="modal-title">Hapus Skill</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div> --}}
             <div class="modal-body text-center mt-4">
                 <div>
                     <i class="far fa-times-circle fa-4x text-danger mb-3"></i>
@@ -115,10 +114,35 @@
                     </form>
                 </div>
             </div>
-            {{-- <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div> --}}
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Edit -->
+<div class="modal fade" id="btnEditSubskill" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div>
+                    <form action="" class="form-skill-delete" method="post">
+                        @csrf
+                        @method('PUT')
+                        <div class="form-group">
+                            <label>Name subskill</label>
+                            <input type="text" name="subskills" class="form-control">
+                            @error('subskills')
+                            <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        </div>
+                        <div class="form-group text-right">
+                            <button type="button" class="btn btn-outline-secondary mx-3"
+                                data-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Update Subskill</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -127,8 +151,12 @@
 @section('js')
 <script>
     $(".btn-delete-skill").on("click", function(){
-        const id = $(this)[0].dataset.idskill;
-        $(".form-skill-delete").attr('action', `/administrator/skill/${id}`)
+        const id = $(this)[0].dataset.idsubkill;
+        $(".form-skill-delete").attr('action', `/administrator/subskill/${id}`)
+    });
+    $(".btn-edit-subskill").on("click", function(){
+        const id = $(this)[0].dataset.idsubkill;
+        $(".form-skill-delete").attr('action', `/administrator/subskill/${id}`)
     });
 </script>
 @endsection

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Skill;
+use App\Models\Subskills;
 use Illuminate\Http\Request;
 
 class SkillController extends Controller
@@ -50,11 +51,9 @@ class SkillController extends Controller
         Skill::create([
             'name' => $request->skill,
             'slug' => $request->slug,
-            'status' => true,
         ]);
 
-            return redirect(route('skill.index'))->with('success', 'Skill baru berhasil ditambahkan!');
-
+        return redirect(route('skill.index'))->with('success', 'Skill baru berhasil ditambahkan!');
     }
 
     /**
@@ -65,7 +64,11 @@ class SkillController extends Controller
      */
     public function show($id)
     {
-        //
+        $active = 'Skill';
+        $skill = Skill::find($id);
+        $subskills = Subskills::where('skill_id', $skill->id)->paginate(10);
+
+        return view('admin.skill.show', compact( 'active', 'skill', 'subskills'));
     }
 
     /**
@@ -78,9 +81,10 @@ class SkillController extends Controller
     {
         $active = 'Skill';
 
+        $skills = Skill::orderBy('name', 'ASC')->paginate(10);
         $skill = Skill::find($id);
 
-        return view('admin.skill.edit', compact('active', 'skill'));
+        return view('admin.skill.edit', compact('active', 'skill', 'skills'));
     }
 
     /**
@@ -94,7 +98,6 @@ class SkillController extends Controller
     {
         $this->validate($request, [
             'skill' => 'required|string|max:50|unique:skills,name,' . $id,
-            'status' => 'required',
         ]);
 
         $course = Skill::withCount(['courses'])->find($id);

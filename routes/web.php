@@ -66,6 +66,7 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function(){
     Route::resource('course', 'App\Http\Controllers\Admin\CourseController');
     Route::resource('skill', 'App\Http\Controllers\Admin\SkillController');
+    Route::resource('subskill', 'App\Http\Controllers\Admin\SubskillController');
     Route::resource('teacher', 'App\Http\Controllers\Admin\TeacherController');
     Route::resource('learner', 'App\Http\Controllers\Admin\LearnerController');
     Route::resource('order', 'App\Http\Controllers\Admin\OrderController');
