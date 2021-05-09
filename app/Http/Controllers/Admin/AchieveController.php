@@ -26,6 +26,7 @@ class AchieveController extends Controller
                 $trophy->student_id = $order->student_id;
                 $trophy->course_id = $order->course_id;
                 $trophy->skill_id = $order->course->skill_id;
+                $trophy->subskill_id = $order->course->subskill_id;
                 $trophy->name_student = $order->student_name;
                 $trophy->name_course = $order->course->name;
                 $trophy->name_skill = $order->course->skill->name;

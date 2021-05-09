@@ -27,7 +27,7 @@ class FrontController extends Controller
 
         $courses = Course::when($request->q, function($q, $request){
             $q->where('skill_id', $request);
-        })->where('status', 0)->paginate(12);
+        })->withCount('orders')->where('status', 0)->paginate(12);
 
         return view('menucourse', compact('active', 'courses', 'skills', 'q'));
     }

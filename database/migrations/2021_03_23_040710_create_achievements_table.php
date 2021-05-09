@@ -18,6 +18,7 @@ class CreateAchievementsTable extends Migration
             $table->unsignedBigInteger('student_id');
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('skill_id');
+            $table->unsignedBigInteger('subskill_id');
             $table->string('name_student')->nullable();
             $table->string('name_course')->nullable();
             $table->string('name_skill')->nullable();

@@ -102,7 +102,7 @@ class MemberController extends Controller
 
     public function getCourseAll(Request $request){
         $active = 'Course';
-        $id = Auth::guard('member')->id();
+        // $id = Auth::guard('member')->id();
         $q = $request->q;
 
         // $courses = Order::when($request->q, function($q){
@@ -117,11 +117,19 @@ class MemberController extends Controller
         //     }]);
         // })->where('student_id', $id)->where('status', 1)->get();
 
-            $courses = Course::when($request->q, function($q, $request) {
+            // $courses = Course::when($request->q, function($q, $request) {
+            //     $q->where('skill_id', $request);
+            // })->whereHas('orders', function($q){
+            //     $q->where('status', 1)->where('student_id', 1);
+            // })->get();
+
+            $courses = Course::when($request->q, function($q, $request){
                 $q->where('skill_id', $request);
-            })->whereHas('orders', function($q){
-                $q->where('status', 1)->where('student_id', 1);
+            })->whereHas('orders', function($e){
+                $e->where('status', 1)->where('student_id', Auth::guard('member')->id());
             })->get();
+
+            // dd($courses, $id);
 
         $skills = Skill::all();
 
