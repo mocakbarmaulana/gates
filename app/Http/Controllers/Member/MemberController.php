@@ -191,9 +191,84 @@ class MemberController extends Controller
     public function getTrophy(){
         $active = 'Achievement';
         $id = Auth::guard('member')->id();
-        $trophys = Achievement::where('student_id', $id)->get();
+        $trophys = Achievement::with('skill')->where('student_id', $id)->orderBy('skill_id', 'ASC')->get();
 
-        return view('member.trophy', compact('active', 'trophys'));
+        $skills = Skill::with('subskills')->get();
+
+        // dd($max);
+        $idSkill = [];
+        $idSubskill = [];
+        $totalSubskill = [];
+        $currentTotalSubskill = [];
+
+        // search id skill in achievment. if id skill exist in array idSkill not insert into array idSkill
+        foreach ( $trophys as $key => $tropy ){
+            if(!in_array($tropy->skill_id, $idSkill)){
+                array_push($idSkill, $tropy->id);
+                $idSubskill["$tropy->name_skill"] = array();
+            }
+        }
+
+        // cari total subskil dari masing masing skill.
+        foreach ($idSkill as $key => $skill ) {
+            $total = Skill::with('subskills')->find($skill);
+            array_push( $totalSubskill, count($total->subskills));
+        }
+
+        // cari id subskill di table achievment. dan jika belum ada di array idsubskill. maka masukaan ke array ke tersbut.
+        // $i = 0;
+        // foreach ($trophys as $key => $achiev) {
+        //     $angka = $idSkill[$i];
+        //     array_push($idSubskill[$angka], "jos{$key}");
+        //     $i++;
+        // }
+        for ($i=0; $i < count($trophys) ; $i++) {
+            if(!in_array($trophys[$i]->subskill_id, $idSubskill[$trophys[$i]->name_skill])){
+                array_push($idSubskill[$trophys[$i]->name_skill], $trophys[$i]->subskill_id);
+            }
+            // echo($trophys[$i]->subskill_id);
+        }
+
+
+        // Cari id subskill yang ada ditable achievment.
+        // foreach ($trophys as $key => $achiev) {
+        //     if(!in_array($achiev->subskill_id, $idSubskill[$idSkill[$key]])) {
+        //         // $idSubskill[$idSkill[$key]] = array_push($idSubskill[$idSkill[$key]], $achiev->subskill_id);
+        //         // array_push($idSubskill, $achiev->subskill_id);
+        //         // $idSubskill[$idSkill[$key]] = array_push()
+        //         // $idSubskill =
+        //         // [
+        //         //     $idSkill[$key] = array()
+        //         // ];
+        //         echo ('oke');
+        //     }
+        // }
+
+        $testArray =
+        [
+            '1' => ['honda', 'yamaha', 'suzuki'],
+        ];
+
+
+        // array_push($idSubskill[1], 'jos');
+
+        // dd($idSubskill[1]);
+        // dd($testArray, $idSubskill);
+
+        // cari nilai subskill yang sesuai id di table achievment
+        // foreach ($idSkill as $key => $skill) {
+        //     $value = 0;
+        //     foreach ($trophys as $achiev) {
+        //         if($achiev->skill_id == $skill) {
+
+        //         }
+        //     }
+        // }
+
+        // dd($idSkill, $totalSubskill, $idSubskill);
+        // dd($trophys);
+
+        return view('member.trophy', compact('active', 'trophys', 'skills'));
     }
 
     public function setWishlist(Request $request, $id){

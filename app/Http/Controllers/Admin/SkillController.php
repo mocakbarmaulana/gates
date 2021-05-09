@@ -106,9 +106,11 @@ class SkillController extends Controller
             return redirect()->back()->with('error', 'Skill sedang digunakan');
         }
 
+        $request->request->add(['slug' => $request->skill]);
+
         $skill = Skill::find($id);
         $skill->name = $request->skill;
-        $skill->status = $request->status;
+        $skill->slug = $request->slug;
         $skill->save();
 
         return redirect()->back()->with('success', 'Skill berhasil diedit');

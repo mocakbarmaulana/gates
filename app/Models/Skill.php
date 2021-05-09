@@ -31,4 +31,9 @@ class Skill extends Model
     {
         return $this->hasMany(Subskills::class);
     }
+
+    public function achievments()
+    {
+        return $this->hasMany(Achievement::class);
+    }
 }

@@ -17,7 +17,7 @@
                         href="{{route('home.menu')}}">Menu</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-navbar" href="{{route('home.learner')}}">For Teacher</a>
+                    <a class="nav-link text-navbar" href="{{route('home.teacher')}}">For Teacher</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="{{route('home.learner')}}">For Learner</a>

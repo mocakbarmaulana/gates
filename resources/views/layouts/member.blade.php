@@ -36,13 +36,13 @@
                         <a class="nav-link text-navbar" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-navbar" href="#">Menu</a>
+                        <a class="nav-link text-navbar" href="{{route('home.menu')}}">Menu</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-navbar" href="#">For Teacher</a>
+                        <a class="nav-link text-navbar" href="{{route('home.teacher')}}">For Teacher</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-navbar" href="#">For Learner</a>
+                        <a class="nav-link text-navbar" href="{{route('home.learner')}}">For Learner</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-navbar" href="{{route('member.wishlist')}}">
