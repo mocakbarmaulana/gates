@@ -65,6 +65,7 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
 // Route::get('/skill', [App\Http\Controllers\Admin\SkillController::class, 'index'])->name('admin.skill');
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function(){
     Route::resource('course', 'App\Http\Controllers\Admin\CourseController');
+    Route::resource('micro-class', 'App\Http\Controllers\Admin\MicroClassController');
     Route::resource('skill', 'App\Http\Controllers\Admin\SkillController');
     Route::resource('subskill', 'App\Http\Controllers\Admin\SubskillController');
     Route::resource('teacher', 'App\Http\Controllers\Admin\TeacherController');

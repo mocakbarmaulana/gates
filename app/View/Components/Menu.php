@@ -43,6 +43,11 @@ class Menu extends Component
                 'link' => 'course.index',
             ],
             [
+                'label' => 'Micro Class',
+                'icon' => 'fab fa-microsoft',
+                'link' => 'micro-class.index',
+            ],
+            [
                 'label' => 'Learner',
                 'icon' => 'fas fa-user-graduate',
                 'link' => 'learner.index',

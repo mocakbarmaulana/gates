@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="row">
-        @foreach ($courses as $course)
+        @forelse($courses as $course)
         <div class="col-4 mb-4">
             <div class="card shadow">
                 <a href="{{route('member.getdetailcourse', $course->id)}}">
@@ -42,7 +42,11 @@
                 </a>
             </div>
         </div>
-        @endforeach
+        @empty
+        <div class="text-center w-100">
+            <span>belum ada course</span>
+        </div>
+        @endforelse
     </div>
 </div>
 @endsection
