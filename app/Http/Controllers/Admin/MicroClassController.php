@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Micro_classes;
 use App\Models\Skill;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MicroClassController extends Controller
 {
@@ -22,8 +23,9 @@ class MicroClassController extends Controller
         $active = "Micro Class";
 
         $skills = Skill::all();
+        $microclasses = Micro_classes::orderBy('created_at', 'DESC')->paginate(10);
 
-        return view('admin.micro_class.index', compact('active', 'skills'));
+        return view('admin.micro_class.index', compact('active', 'skills', 'microclasses'));
     }
 
     /**
@@ -111,6 +113,12 @@ class MicroClassController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $microclass = Micro_classes::find($id);
+
+        Storage::delete('/public/assets/images/micro-class/'.$microclass->image);
+
+        $microclass->delete();
+
+        return redirect()->back()->with('success', 'Micro class berhasil dihapus');
     }
 }
