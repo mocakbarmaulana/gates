@@ -56,6 +56,7 @@ class MicroClassController extends Controller
             'description' => 'required|string',
             'skill' => 'required|integer',
             'subskill' => 'required|integer',
+            'link' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -67,6 +68,8 @@ class MicroClassController extends Controller
             'image' => $image,
             'skill_id' => $request->skill,
             'subskill_id' => $request->subskill,
+            'link' => $request->link,
+            'status' => false,
         ]);
 
         return redirect()->back()->with('success', 'Micro class baru telah berhasil ditambahkan.');
@@ -111,6 +114,7 @@ class MicroClassController extends Controller
             'description' => 'required|string',
             'skill' => 'required|integer',
             'subskill' => 'required|integer',
+            'link' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
         ]);
 
@@ -123,6 +127,7 @@ class MicroClassController extends Controller
         $microclass->image = $image;
         $microclass->skill_id = $request->skill;
         $microclass->subskill_id = $request->subskill;
+        $microclass->link = $request->link;
         $microclass->save();
 
         return redirect()->back()->with('success', 'Micro class berhasil di edit');

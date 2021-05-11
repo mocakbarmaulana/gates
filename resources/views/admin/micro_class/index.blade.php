@@ -111,6 +111,13 @@
                             name="description"></textarea>
                     </div>
                     <div class="form-group">
+                        <label>Link Typeform</label>
+                        @error('link')
+                        <small class="text-danger">*{{$message}}</small>
+                        @enderror
+                        <input type="text" name="link" class="form-control" id="link">
+                    </div>
+                    <div class="form-group">
                         <label>Choose Skills</label>
                         @error('skill')
                         <small class="text-danger">*{{$message}}</small>
@@ -204,6 +211,7 @@
     const formInputMicroClass = document.querySelector("#formInputMicroClass");
     const nameMicroClass = document.querySelector(".name");
     const descriptionMicroClass = document.querySelector(".description");
+    const linkTypeForm = document.querySelector("#link");
     const inputSkill =  document.querySelector("#inputSkill");
     const inputSubskill =  document.querySelector("#inputSubskill");
     const subskillContainer =  document.querySelector(".subskill-box");
@@ -259,6 +267,7 @@
         subskillContainer.style.display = 'none';
         imagePreview.style.display = 'none';
         document.querySelector("#btnSubmit").textContent = 'Create';
+        modalTitle.textContent = "Create Micro Class";
     };
 
     // Function load subskill form edit.
@@ -276,13 +285,14 @@
     }
 
     const updateEditFormUi = async ( microclass ) => {
-        const {id, description, name, image, skill_id, subskill_id } = microclass;
+        const {id, description, name, image, skill_id, subskill_id, link } = microclass;
         const base_url = window.location.origin;
         const options = inputSkill.options;
 
         modalTitle.textContent = "Edit Micro Class";
         nameMicroClass.value = name;
         CKEDITOR.instances['description'].setData(description);
+        linkTypeForm.value = link;
 
         for (let index = 0; index < options.length; index++) {
             options[index].selected = false;

@@ -20,7 +20,8 @@ class CreateMicroClassesTable extends Migration
             $table->string('image');
             $table->unsignedBigInteger('skill_id');
             $table->unsignedBigInteger('subskill_id');
-            // $table->integer('total_subskill');
+            $table->string('link');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

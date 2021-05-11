@@ -45,6 +45,10 @@
                         <b>Subskill :</b>
                         {{$microclass->subskill->name}}
                     </li>
+                    <li class="list-group-item">
+                        <b>Link Typeform :</b>
+                        <a href="{{$microclass->link}}" target="_blank">Open to typeform</a>
+                    </li>
                 </ul>
             </div>
         </div>
