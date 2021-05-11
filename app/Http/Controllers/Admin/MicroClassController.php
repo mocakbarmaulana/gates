@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Micro_classes;
 use App\Models\Skill;
+use App\Models\Subskills;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -79,7 +80,10 @@ class MicroClassController extends Controller
      */
     public function show($id)
     {
-        //
+        $active = $this->title;
+        $microclass = Micro_classes::find($id);
+
+        return view('admin.micro_class.show', compact('active', 'microclass'));
     }
 
     /**
@@ -102,7 +106,26 @@ class MicroClassController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string|max:150|unique:micro_classes,name,'.$id,
+            'description' => 'required|string',
+            'skill' => 'required|integer',
+            'subskill' => 'required|integer',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        $microclass = Micro_classes::find($id);
+
+        $image = Helper::uploadImage($request->image, $microclass->image, 'micro-class');
+
+        $microclass->name = $request->name;
+        $microclass->description = $request->description;
+        $microclass->image = $image;
+        $microclass->skill_id = $request->skill;
+        $microclass->subskill_id = $request->subskill;
+        $microclass->save();
+
+        return redirect()->back()->with('success', 'Micro class berhasil di edit');
     }
 
     /**

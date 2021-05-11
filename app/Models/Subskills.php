@@ -22,6 +22,11 @@ class Subskills extends Model
         return $this->hasMany(Course::class, 'subskill_id');
     }
 
+    public function micro_classes()
+    {
+        return $this->hasMany(Micro_classes::class, 'subskill_id');
+    }
+
     public function setSlugAttribute($value)
     {
         $this->attributes['slug'] = Str::slug($value);

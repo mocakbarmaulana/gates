@@ -27,7 +27,7 @@
     <div class="inner-width">
         <div class="row mb-3 create-micro-class">
             <div class="col text-right">
-                <a data-toggle="modal" data-target="#modalCreateMicroClass" class="btn btn-primary">
+                <a data-toggle="modal" data-target="#modalMicroClass" class="btn btn-primary" onclick="resetForm()">
                     <i class="fas fa-plus-circle mx-2"></i>
                     Create Micro Class
                 </a>
@@ -51,7 +51,15 @@
                         {{date('d-m-Y', strtotime($microclass->created_at))}}
                     </td>
                     <td class="text-left" style="width: 250px; vertical-align: middle;">
-                        <a href="#" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Edit</a>
+                        <a data-toggle="modal" data-target="#modalMicroClass"
+                            onclick="actionEditMicroClass({{$microclass}})" class="btn btn-warning btn-sm">
+                            <i class="fas fa-edit"></i>
+                            Edit
+                        </a>
+                        <a href="{{route('micro-class.show', $microclass->id)}}" class="btn btn-sm btn-success">
+                            <i class="fas fa-info-circle"></i>
+                            Detail
+                        </a>
                         <a onclick="actionDeleteMicroClass(this)" data-toggle="modal"
                             data-target="#modalDeleteMicroClass" data-idmicroclass="{{$microclass->id}}"
                             id="btnDeleteMicroClass" class="btn btn-danger btn-sm">
@@ -72,8 +80,8 @@
 
 {{-- Modal --}}
 
-<!-- Modal Form -->
-<div class=" modal fade" id="modalCreateMicroClass" data-backdrop="static" data-keyboard="false" tabindex="-1"
+<!-- Modal add Form -->
+<div class=" modal fade" id="modalMicroClass" data-backdrop="static" data-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
@@ -92,14 +100,15 @@
                         @error('name')
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
-                        <input type="text" class="form-control" name="name">
+                        <input type="text" class="form-control name" name="name">
                     </div>
                     <div class="form-group">
                         <label>Description Micro Class</label>
                         @error('description')
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
-                        <textarea class="form-control ckeditor" name="description"></textarea>
+                        <textarea class="form-control description ckeditor" id="description"
+                            name="description"></textarea>
                     </div>
                     <div class="form-group">
                         <label>Choose Skills</label>
@@ -143,9 +152,6 @@
                                 <label class="custom-file-label image-text" for="inputUploadImage"
                                     aria-describedby="inputGroupFileAddon02">Choose file</label>
                             </div>
-                            {{-- <div class="input-group-append">
-                                <span class="input-group-text" id="inputGroupFileAddon02">Upload</span>
-                            </div> --}}
                         </div>
                     </div>
                     <div class="form-group">
@@ -159,12 +165,12 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick="actionSubmitForm()">Create</button>
+                <button type="button" id="btnSubmit" class="btn btn-primary"
+                    onclick="actionSubmitForm()">Create</button>
             </div>
         </div>
     </div>
 </div>
-
 
 {{-- Modal Delete Form --}}
 <div class="modal fade" id="modalDeleteMicroClass" aria-hidden="true">
@@ -193,6 +199,17 @@
 <script src="{{asset('ckeditor/ckeditor.js')}}"></script>
 <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
+    // dom element
+    const modalTitle = document.querySelector(".modal-title");
+    const formInputMicroClass = document.querySelector("#formInputMicroClass");
+    const nameMicroClass = document.querySelector(".name");
+    const descriptionMicroClass = document.querySelector(".description");
+    const inputSkill =  document.querySelector("#inputSkill");
+    const inputSubskill =  document.querySelector("#inputSubskill");
+    const subskillContainer =  document.querySelector(".subskill-box");
+    const imagePreview = document.querySelector(".image-preview");
+
+
     // Function fetching subskill
     const fetchSubskill = (id) => {
         return fetch(`http://127.0.0.1:8000/api/subskill/${id}`)
@@ -200,31 +217,97 @@
     }
 
     // Function update list subskill
-    const updateSubskillUI = (subskills) => {
+    const updateSubskillUI = (subskills, value) => {
         let content = '';
         subskills.forEach(e => {
-            content += `<option value="${e.id}">${e.name}</option>`
+            content += `<option value="${e.id}" ${(e.id == value) ? 'selected' : ''} >${e.name}</option>`
         });
         return content;
     }
 
     // event listener ketika skill berubah inputanya.
-    document.querySelector("#inputSkill")
-        .addEventListener('change', async function(){
-            const id = this.value;
-            const inputSubskill = document.querySelector('#inputSubskill');
-            try {
-                const subskills = await fetchSubskill(id);
+    inputSkill.addEventListener('change', async function(){
+        try {
+            await loadSubskill(this.value, '');
+            subskillContainer.style.display = 'block';
 
-                const result = updateSubskillUI(subskills);
+        } catch (error) {
+            console.error(error);
+        }
+    })
 
-                inputSubskill.innerHTML = result;
+    // Function ketika tombol button submit di klik.
+    const actionSubmitForm = () => document.querySelector("#formInputMicroClass").submit();
 
-            } catch (error) {
-                console.error(error);
-            }
-        })
+    // function update form delete
+    const actionDeleteMicroClass = (e) =>{
+        // console.log(e.dataset.idmicroclass);
+        const id = e.dataset.idmicroclass;
 
+        document.querySelector(".form-microclass-delete")
+            .setAttribute('action', `/administrator/micro-class/${id}`);
+
+    }
+
+    // Function modal form edit.
+    const actionEditMicroClass = async (microclass) => await updateEditFormUi(microclass);
+
+    // Function reset form
+    const resetForm = () => {
+        CKEDITOR.instances['description'].setData('');
+        document.querySelector("#formInputMicroClass").reset();
+        subskillContainer.style.display = 'none';
+        imagePreview.style.display = 'none';
+        document.querySelector("#btnSubmit").textContent = 'Create';
+    };
+
+    // Function load subskill form edit.
+    const loadSubskill = async (skill , subskill) => {
+        try {
+            const subskills = await fetchSubskill(skill);
+
+            const result = await updateSubskillUI(subskills, subskill);
+
+            inputSubskill.innerHTML = result;
+
+        } catch (err) {
+            console.error(err);
+        }
+    }
+
+    const updateEditFormUi = async ( microclass ) => {
+        const {id, description, name, image, skill_id, subskill_id } = microclass;
+        const base_url = window.location.origin;
+        const options = inputSkill.options;
+
+        modalTitle.textContent = "Edit Micro Class";
+        nameMicroClass.value = name;
+        CKEDITOR.instances['description'].setData(description);
+
+        for (let index = 0; index < options.length; index++) {
+            options[index].selected = false;
+            if( skill_id == options[index].value )
+            options[index].selected = true;
+        }
+
+        await loadSubskill(skill_id ,subskill_id);
+        subskillContainer.style.display = 'blok';
+
+        imagePreview.src = `${base_url}/storage/assets/images/micro-class/${image}`;
+        imagePreview.style.display = "block";
+
+        // const input = "<option type='hidden' name='method_field' value='put'></option>"
+        var input = document.createElement("input");
+        input.setAttribute('type', 'hidden');
+        input.setAttribute('name', '_method');
+        input.setAttribute('value', 'put');
+
+        formInputMicroClass.insertBefore(input, formInputMicroClass.firstChild);
+
+        formInputMicroClass.setAttribute('action', `/administrator/micro-class/${id}`);
+
+        document.querySelector("#btnSubmit").textContent = 'Update';
+    }
 
     // Function image
     const readUrlImage = (input) => {
@@ -244,18 +327,6 @@
         readUrlImage($(this));
         $(".image-preview").show();
     });
-
-    const actionSubmitForm = () => document.querySelector("#formInputMicroClass").submit();
-
-    // function update form delete
-    const actionDeleteMicroClass = (e) =>{
-        // console.log(e.dataset.idmicroclass);
-        const id = e.dataset.idmicroclass;
-
-        document.querySelector(".form-microclass-delete")
-            .setAttribute('action', `/administrator/micro-class/${id}`);
-
-    }
 
 </script>
 @endsection

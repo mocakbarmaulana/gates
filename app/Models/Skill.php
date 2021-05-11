@@ -36,4 +36,9 @@ class Skill extends Model
     {
         return $this->hasMany(Achievement::class);
     }
+
+    public function micro_classes()
+    {
+        return $this->hasMany(Micro_classes::class, 'skill_id');
+    }
 }
