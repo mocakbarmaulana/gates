@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Achievement;
 use App\Models\Course;
+use App\Models\Micro_classes;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Skill;
@@ -196,24 +197,25 @@ class MemberController extends Controller
         $skills = Skill::with('subskills')->get();
 
         // dd($max);
-        $idSkill = [];
-        $idSubskill = [];
-        $totalSubskill = [];
-        $currentTotalSubskill = [];
+        // $idSkill = [];
+        // $idSubskill = [];
+        // $totalSubskill = [];
+        // $currentTotalSubskill = [];
 
         // search id skill in achievment. if id skill exist in array idSkill not insert into array idSkill
-        foreach ( $trophys as $key => $tropy ){
-            if(!in_array($tropy->skill_id, $idSkill)){
-                array_push($idSkill, $tropy->id);
-                $idSubskill["$tropy->name_skill"] = array();
-            }
-        }
+        // foreach ( $trophys as $key => $tropy ){
+        //     if(!in_array($tropy->skill_id, $idSkill)){
+        //         array_push($idSkill, $tropy->id);
+        //         $idSubskill["$tropy->name_skill"] = array();
+        //     }
+        // }
 
         // cari total subskil dari masing masing skill.
-        foreach ($idSkill as $key => $skill ) {
-            $total = Skill::with('subskills')->find($skill);
-            array_push( $totalSubskill, count($total->subskills));
-        }
+        // foreach ($idSkill as $key => $skill ) {
+        //     $total = Skill::with('subskills')->find($skill);
+        //     dd($total);
+        //     array_push( $totalSubskill, count($total->subskills));
+        // }
 
         // cari id subskill di table achievment. dan jika belum ada di array idsubskill. maka masukaan ke array ke tersbut.
         // $i = 0;
@@ -222,12 +224,12 @@ class MemberController extends Controller
         //     array_push($idSubskill[$angka], "jos{$key}");
         //     $i++;
         // }
-        for ($i=0; $i < count($trophys) ; $i++) {
-            if(!in_array($trophys[$i]->subskill_id, $idSubskill[$trophys[$i]->name_skill])){
-                array_push($idSubskill[$trophys[$i]->name_skill], $trophys[$i]->subskill_id);
-            }
-            // echo($trophys[$i]->subskill_id);
-        }
+        // for ($i=0; $i < count($trophys) ; $i++) {
+        //     if(!in_array($trophys[$i]->subskill_id, $idSubskill[$trophys[$i]->name_skill])){
+        //         array_push($idSubskill[$trophys[$i]->name_skill], $trophys[$i]->subskill_id);
+        //     }
+        //     // echo($trophys[$i]->subskill_id);
+        // }
 
 
         // Cari id subskill yang ada ditable achievment.
@@ -243,12 +245,6 @@ class MemberController extends Controller
         //         echo ('oke');
         //     }
         // }
-
-        $testArray =
-        [
-            '1' => ['honda', 'yamaha', 'suzuki'],
-        ];
-
 
         // array_push($idSubskill[1], 'jos');
 
@@ -294,5 +290,14 @@ class MemberController extends Controller
         // dd($wishlists[0]);
 
         return view('wishlist', compact('active', 'wishlists'));
+    }
+
+    // function to routeDetailMicroClass
+    public function getDetailMicroClass($id) {
+
+        $active = 'Micro Class';
+        $microclass = Micro_classes::find($id);
+
+        return view('member.microclassdetail', compact('microclass', 'active'));
     }
 }

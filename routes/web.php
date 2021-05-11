@@ -49,6 +49,7 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
     Route::get('/course', [App\Http\Controllers\Member\MemberController::class, 'getCourseAll'])->name('member.getcourseall');
     Route::get('/course/detail/{id}', [App\Http\Controllers\Member\MemberController::class, 'getDetailCourse'])->name('member.getdetailcourse');
 
+    Route::get('/microclass/detail/{id}', [App\Http\Controllers\Member\MemberController::class, 'getDetailMicroClass'])->name('member.getmicroclassdetail');
     Route::get('/achievement', [App\Http\Controllers\Member\MemberController::class, 'getTrophy'])->name('member.achievement');
 
     Route::post('/order/{id}', [App\Http\Controllers\Member\MemberController::class, 'setOrder'])->name('member.setorder');
