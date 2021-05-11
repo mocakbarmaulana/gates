@@ -35,6 +35,12 @@
             row-gap: 1em;
             column-gap: 10px;
         }
+
+        .nothing {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
     </style>
     <div class="row">
         <div class="col-12">
@@ -52,14 +58,13 @@
                     </a>
                 </div>
                 @empty
+                <div class="text-center nothing">
+                    <span>Tidak ada data</span>
+                </div>
                 @endforelse
-                <div class="card shadow"></div>
-                <div class="card shadow" style="height: 100px"></div>
-                <div class="card shadow"></div>
             </div>
         </div>
     </div>
-
 </div>
 @endsection
 

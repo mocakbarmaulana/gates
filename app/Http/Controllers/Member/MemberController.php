@@ -300,4 +300,29 @@ class MemberController extends Controller
 
         return view('member.microclassdetail', compact('microclass', 'active'));
     }
+
+    // Function microclass save to achievment.
+    public function setSkillMicroClass(Request $request) {
+        $id = Auth::guard('member')->id();
+
+        $achieve = Achievement::where('skill_id', $request->skill)
+                    ->where('subskill_id', $request->subskill)
+                    ->where('student_id', $id)
+                    ->first();
+
+        $student = Student::find($id);
+
+        if(is_null($achieve)){
+            $trophy = new Achievement();
+            $trophy->student_id = $id;
+            $trophy->skill_id = $request->skill;
+            $trophy->subskill_id = $request->subskill;
+            $trophy->name_student = $student->name;
+            $trophy->name_skill = $request->name;
+            $trophy->total = $trophy->total += 1;
+            $trophy->save();
+        }
+
+        return redirect()->back()->with('success', 'Micro class berhasil dibuka');
+    }
 }

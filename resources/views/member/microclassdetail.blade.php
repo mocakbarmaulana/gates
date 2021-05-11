@@ -8,7 +8,12 @@
 
 @section('content')
 <div class="container py-5" style="min-height: 40vh">
-    {{-- <h1>{{ ucwords($microclass->name)}}</h1> --}}
+    @if (session('success'))
+    <div class="alert alert-success" role="alert">
+        {{session('success')}}
+    </div>
+    @endif
+
     <div>
         <a href="{{url()->previous()}}" class="btn btn-sm btn-secondary" style="width: 100px">
             <i class="fas fa-arrow-circle-left"></i>
@@ -40,7 +45,8 @@
                     </li>
                 </ul>
 
-                <a href="{{$microclass->link}}" target="_blank" class="btn btn-mint btn-block btn-order-course">Open</a>
+                <a href="{{$microclass->link}}" target="_blank" onclick="actionBtnMicroClass()"
+                    class="btn btn-mint btn-block btn-order-course">Open</a>
             </div>
         </div>
         <div class="col-12 my-3">
@@ -49,4 +55,19 @@
         </div>
     </div>
 </div>
+
+{{-- Form skill micro class --}}
+<form action="{{route('member.setAchivementMicroClass')}}" method="post" id="formMicroClass">
+    @csrf
+    <input type="hidden" name="name" value="{{$microclass->skill->name}}">
+    <input type="hidden" name="skill" value="{{$microclass->skill_id}}">
+    <input type="hidden" name="subskill" value="{{$microclass->subskill_id}}">
+    <input type="hidden" name="name" value="{{$microclass->skill->name}}">
+</form>
+@endsection
+
+@section('js')
+<script>
+    const actionBtnMicroClass = () => document.querySelector("#formMicroClass").submit();
+</script>
 @endsection

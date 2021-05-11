@@ -51,6 +51,7 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
 
     Route::get('/microclass/detail/{id}', [App\Http\Controllers\Member\MemberController::class, 'getDetailMicroClass'])->name('member.getmicroclassdetail');
     Route::get('/achievement', [App\Http\Controllers\Member\MemberController::class, 'getTrophy'])->name('member.achievement');
+    Route::post('/microclass/skill', [App\Http\Controllers\Member\MemberController::class, 'setSkillMicroClass'])->name('member.setAchivementMicroClass');
 
     Route::post('/order/{id}', [App\Http\Controllers\Member\MemberController::class, 'setOrder'])->name('member.setorder');
     Route::post('/payment', [App\Http\Controllers\Member\MemberController::class, 'payment'])->name('member.payment');
