@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [App\Http\Controllers\FrontController::class, 'home'])->name('home');
 Route::get('/detail/{id}', [App\Http\Controllers\FrontController::class, 'detail'])->name('home.detail');
 Route::get('/menu', [App\Http\Controllers\FrontController::class, 'menu'])->name('home.menu');
+Route::get('/menu/microclass', [App\Http\Controllers\FrontController::class, 'menuMicroclass'])->name('home.menu-microclass');
 Route::get('/about', [App\Http\Controllers\FrontController::class, 'aboutus'])->name('home.about');
 Route::get('/career', [App\Http\Controllers\FrontController::class, 'career'])->name('home.career');
 Route::get('/learner', [App\Http\Controllers\FrontController::class, 'learner'])->name('home.learner');

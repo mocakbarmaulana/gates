@@ -12,9 +12,19 @@
                 <li class="nav-item">
                     <a class="nav-link text-navbar {{($active == 'Home') ? 'active' : ''}}" href="/">Home</a>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a class="nav-link text-navbar {{($active == 'Menu') ? 'active' : ''}}"
-                        href="{{route('home.menu')}}">Menu</a>
+                href="{{route('home.menu')}}">Menu</a>
+                </li> --}}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-navbar" href="#" id="navbarMenu" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Menu
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="nnavbarMenu">
+                        <a class="dropdown-item" href="{{route('home.menu')}}">Course</a>
+                        <a class="dropdown-item" href="{{route('home.menu-microclass')}}">Micro Class</a>
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-navbar" href="{{route('home.teacher')}}">For Teacher</a>

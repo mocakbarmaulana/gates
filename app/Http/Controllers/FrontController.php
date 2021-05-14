@@ -34,6 +34,18 @@ class FrontController extends Controller
         return view('menucourse', compact('active', 'courses', 'skills', 'q'));
     }
 
+    public function menuMicroclass(Request $request) {
+        $active = 'Menu';
+        $q = $request->q;
+        $skills = Skill::all();
+
+        $microclasses = Micro_classes::when($request->q, function($q, $request){
+            $q->where('skill_id', $request);
+        })->paginate(10);
+
+        return view('menumicroclass', compact('active', 'skills', 'q', 'microclasses'));
+    }
+
     public function detail($id){
         $active = 'Menu';
         $course = Course::with(['orders' => function($order){

@@ -288,7 +288,9 @@
                         </div>
                     </div>
                     @empty
-
+                    <div class="col-12 text-center">
+                        <p>Tidak ada micro class.</p>
+                    </div>
                     @endforelse
                 </div>
             </div>
