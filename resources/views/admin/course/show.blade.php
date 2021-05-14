@@ -128,7 +128,7 @@
                     <ul class="list-unstyled">
                         <li class="mb-3">
                             <b>Description :</b><br>
-                            {{$course->description}}
+                            {!! $course->description !!}
                         </li>
                         <li class="mb-3">
                             <b>Expert :</b><br>

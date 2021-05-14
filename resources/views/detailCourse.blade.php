@@ -85,7 +85,7 @@
         </div>
         <div class="col-12 my-3">
             <p class="m-0"><strong>Description : </strong></p>
-            <span>{{ $course->description }}</span>
+            {!! $course->description !!}
         </div>
     </div>
 

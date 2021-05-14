@@ -14,4 +14,8 @@ class Achievement extends Model
     public function student(){
         return $this->belongsTo(Student::class);
     }
+
+    public function skill(){
+        return $this->belongsTo(Skill::class);
+    }
 }

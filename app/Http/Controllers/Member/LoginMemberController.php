@@ -42,7 +42,7 @@ class LoginMemberController extends Controller
         $student->status = true;
         $student->save();
 
-        return redirect(route('home'));
+        return redirect(route('member.login'));
     }
 
     public function authenticate(Request $request){

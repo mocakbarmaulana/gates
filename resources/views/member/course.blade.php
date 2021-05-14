@@ -27,22 +27,43 @@
             </div>
         </div>
     </div>
+
+    <style>
+        .wrapper {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            row-gap: 1em;
+            column-gap: 10px;
+        }
+
+        .nothing {
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 0);
+        }
+    </style>
     <div class="row">
-        @foreach ($courses as $course)
-        <div class="col-4 mb-4">
-            <div class="card shadow">
-                <a href="{{route('member.getdetailcourse', $course->id)}}">
-                    <div class="card-body course-content">
-                        <div class="image-thumb" style="width: 100%; height: 200px">
-                            <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}"
-                                alt="image-course" class="img-course" style="width: 100%; height: 100%">
+        <div class="col-12">
+            <div class="wrapper">
+                @forelse($courses as $course)
+                <div class="card shadow">
+                    <a href="{{route('member.getdetailcourse', $course->id)}}">
+                        <div class="card-body course-content">
+                            <div class="image-thumb" style="width: 100%; height: 200px">
+                                <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}"
+                                    alt="image-course" class="img-course" style="width: 100%; height: 100%">
+                            </div>
+                            <h5 class="my-2">{{$course->name}}</h5>
                         </div>
-                        <h5 class="my-2">{{$course->name}}</h5>
-                    </div>
-                </a>
+                    </a>
+                </div>
+                @empty
+                <div class="text-center nothing">
+                    <span>Tidak ada data</span>
+                </div>
+                @endforelse
             </div>
         </div>
-        @endforeach
     </div>
 </div>
 @endsection

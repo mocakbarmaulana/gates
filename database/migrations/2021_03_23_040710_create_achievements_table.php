@@ -16,12 +16,13 @@ class CreateAchievementsTable extends Migration
         Schema::create('achievements', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('student_id');
-            $table->unsignedBigInteger('course_id');
+            // $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('skill_id');
+            $table->unsignedBigInteger('subskill_id');
             $table->string('name_student')->nullable();
-            $table->string('name_course')->nullable();
+            // $table->string('name_course')->nullable();
             $table->string('name_skill')->nullable();
-            $table->boolean('status')->nullable();
+            // $table->boolean('status')->nullable();
             $table->integer('total')->nullable();
             $table->timestamps();
         });

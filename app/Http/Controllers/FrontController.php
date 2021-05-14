@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\contacts;
 use App\Models\Course;
+use App\Models\Micro_classes;
 use App\Models\Skill;
 use App\Models\Whishlists;
 use Illuminate\Http\Request;
@@ -15,8 +16,9 @@ class FrontController extends Controller
     {
         $active = 'Home';
         $courses = Course::where('status', 0)->withCount('orders')->paginate(3);
+        $microclasses = Micro_classes::orderBy('created_at', 'DESC')->paginate(3);
 
-        return view('home', compact('courses', 'active'));
+        return view('home', compact('courses', 'active', 'microclasses'));
     }
 
     public function menu(Request $request){
@@ -27,9 +29,21 @@ class FrontController extends Controller
 
         $courses = Course::when($request->q, function($q, $request){
             $q->where('skill_id', $request);
-        })->where('status', 0)->paginate(12);
+        })->withCount('orders')->where('status', 0)->paginate(12);
 
         return view('menucourse', compact('active', 'courses', 'skills', 'q'));
+    }
+
+    public function menuMicroclass(Request $request) {
+        $active = 'Menu';
+        $q = $request->q;
+        $skills = Skill::all();
+
+        $microclasses = Micro_classes::when($request->q, function($q, $request){
+            $q->where('skill_id', $request);
+        })->paginate(10);
+
+        return view('menumicroclass', compact('active', 'skills', 'q', 'microclasses'));
     }
 
     public function detail($id){

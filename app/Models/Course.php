@@ -19,9 +19,9 @@ class Course extends Model
         return $this->belongsTo(Skill::class);
     }
 
-    // public function orders(){
-    //     return $this->belongsTo(Order::class, 'course_id');
-    // }
+    public function subskills(){
+        return $this->belongsTo(Subskills::class);
+    }
 
     public function orders(){
         return $this->hasMany(Order::class);

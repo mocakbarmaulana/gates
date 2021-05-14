@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [App\Http\Controllers\FrontController::class, 'home'])->name('home');
 Route::get('/detail/{id}', [App\Http\Controllers\FrontController::class, 'detail'])->name('home.detail');
 Route::get('/menu', [App\Http\Controllers\FrontController::class, 'menu'])->name('home.menu');
+Route::get('/menu/microclass', [App\Http\Controllers\FrontController::class, 'menuMicroclass'])->name('home.menu-microclass');
 Route::get('/about', [App\Http\Controllers\FrontController::class, 'aboutus'])->name('home.about');
 Route::get('/career', [App\Http\Controllers\FrontController::class, 'career'])->name('home.career');
 Route::get('/learner', [App\Http\Controllers\FrontController::class, 'learner'])->name('home.learner');
@@ -49,7 +50,9 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
     Route::get('/course', [App\Http\Controllers\Member\MemberController::class, 'getCourseAll'])->name('member.getcourseall');
     Route::get('/course/detail/{id}', [App\Http\Controllers\Member\MemberController::class, 'getDetailCourse'])->name('member.getdetailcourse');
 
+    Route::get('/microclass/detail/{id}', [App\Http\Controllers\Member\MemberController::class, 'getDetailMicroClass'])->name('member.getmicroclassdetail');
     Route::get('/achievement', [App\Http\Controllers\Member\MemberController::class, 'getTrophy'])->name('member.achievement');
+    Route::post('/microclass/skill', [App\Http\Controllers\Member\MemberController::class, 'setSkillMicroClass'])->name('member.setAchivementMicroClass');
 
     Route::post('/order/{id}', [App\Http\Controllers\Member\MemberController::class, 'setOrder'])->name('member.setorder');
     Route::post('/payment', [App\Http\Controllers\Member\MemberController::class, 'payment'])->name('member.payment');
@@ -65,7 +68,9 @@ Route::group(['prefix' => 'member', 'middleware' => 'member'], function(){
 // Route::get('/skill', [App\Http\Controllers\Admin\SkillController::class, 'index'])->name('admin.skill');
 Route::group(['prefix' => 'administrator', 'middleware' => 'auth'], function(){
     Route::resource('course', 'App\Http\Controllers\Admin\CourseController');
+    Route::resource('micro-class', 'App\Http\Controllers\Admin\MicroClassController');
     Route::resource('skill', 'App\Http\Controllers\Admin\SkillController');
+    Route::resource('subskill', 'App\Http\Controllers\Admin\SubskillController');
     Route::resource('teacher', 'App\Http\Controllers\Admin\TeacherController');
     Route::resource('learner', 'App\Http\Controllers\Admin\LearnerController');
     Route::resource('order', 'App\Http\Controllers\Admin\OrderController');

@@ -19,9 +19,8 @@ class Helper {
             );
 
             if ($imageDB != null) {
-                Storage::delete(`/public/assets/images/$folder/`.$imageDB);
+                Storage::delete("/public/assets/images/$folder/$imageDB");
             }
-
         }
         return $imageName;
     }

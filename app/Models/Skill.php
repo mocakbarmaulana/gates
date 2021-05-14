@@ -11,7 +11,7 @@ class Skill extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name', 'slug', 'description', 'status'];
+    protected $fillable = ['name', 'slug'];
 
     // Mutator
     public function setSlugAttribute($value){
@@ -25,5 +25,20 @@ class Skill extends Model
 
     public function courses(){
         return $this->hasMany(Course::class);
+    }
+
+    public function subskills()
+    {
+        return $this->hasMany(Subskills::class);
+    }
+
+    public function achievments()
+    {
+        return $this->hasMany(Achievement::class);
+    }
+
+    public function micro_classes()
+    {
+        return $this->hasMany(Micro_classes::class, 'skill_id');
     }
 }

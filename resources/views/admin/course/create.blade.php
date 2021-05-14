@@ -22,7 +22,7 @@
                     <img src="{{asset('assets/images/no-image.png')}}" class="img-fluid image-preview image-thumbnail"
                         style="min-height: 500px" alt="no-image" width="100%">
                 </div>
-                <div class="form-group my-5">
+                <div class="form-group mt-5">
                     <label for="customFile">Upload Image</label>
                     @error('image')
                     <span class="text-danger text-sm">*{{$message}}</span>
@@ -30,6 +30,60 @@
                     <div class="custom-file">
                         <input type="file" class="custom-file-input input-mint" id="customFile" name="image" required>
                         <label class="custom-file-label image-text" for="customFile">Choose file</label>
+                    </div>
+                </div>
+                <div class="col container-workshop">
+                    <div class="workshop-box">
+                        <div class='offline-workshop'>
+                            <h6>Event Ke-1</h6>
+                            <div class="form-row">
+                                <div class="col form-group">
+                                    <label>Event Date</label>
+                                    <input type="date" class="form-control input-mint" name="event_date[1]"
+                                        value="{{old('event_date[1]')}}">
+                                </div>
+                                <div class="col form-group">
+                                    <label>Event Time</label>
+                                    <input type="time" class="form-control input-mint" name="event_time[1]"
+                                        value="{{old('event_time[1]')}}">
+                                </div>
+                            </div>
+                            <div class="form-group event-offline" style="display: none">
+                                <label>Event Location</label>
+                                <input type="text" class="form-control input-mint" name="event_location[1]"
+                                    value="{{old('event_location[1]')}}">
+                            </div>
+                            <div class="form-group event-online" style="display: none">
+                                <label>Link Workshop Online</label>
+                                <input type="text" class="form-control input-mint" name="event_link[1]"
+                                    value="{{old('event_link[1]')}}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class='offline-workshop'>
+                        <h6>Event Ke-2</h6>
+                        <div class="form-row">
+                            <div class="col form-group">
+                                <label>Event Date</label>
+                                <input type="date" class="form-control input-mint" name="event_date[2]"
+                                    value="{{old('event_date[2]')}}">
+                            </div>
+                            <div class="col form-group">
+                                <label>Event Time</label>
+                                <input type="time" class="form-control input-mint" name="event_time[2]"
+                                    value="{{old('event_time[2]')}}">
+                            </div>
+                        </div>
+                        <div class="form-group event-offline" style="display: none">
+                            <label>Event Location</label>
+                            <input type="text" class="form-control input-mint" name="event_location[2]"
+                                value="{{old('event_location[2]')}}">
+                        </div>
+                        <div class="form-group event-online" style="display: none">
+                            <label>Link Workshop Online</label>
+                            <input type="text" class="form-control input-mint" name="event_link[2]"
+                                value="{{old('event_link[2]')}}">
+                        </div>
                     </div>
                 </div>
         </div>
@@ -48,7 +102,7 @@
                 @error('description')
                 <span class="text-danger text-sm">*{{$message}}</span>
                 @enderror
-                <textarea class="form-control input-mint" id="descriptionCourse" rows="5" required
+                <textarea class="form-control input-mint ckeditor" id="descriptionCourse" rows="5" required
                     name="description">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
@@ -93,72 +147,21 @@
                     </select>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <div class="row">
-        <div class="col">
-            <div class="workshop-box">
-                <div class='offline-workshop'>
-                    <h6>Event Ke-1</h6>
-                    <div class="form-row">
-                        <div class="col form-group">
-                            <label>Event Date</label>
-                            <input type="date" class="form-control input-mint" name="event_date[1]"
-                                value="{{old('event_date[1]')}}">
-                        </div>
-                        <div class="col form-group">
-                            <label>Event Time</label>
-                            <input type="time" class="form-control input-mint" name="event_time[1]"
-                                value="{{old('event_time[1]')}}">
-                        </div>
+            <div class="form-group subskill-box" style="display: none">
+                <label>Subskill</label>
+                <div class="input-group mb-5">
+                    <div class="input-group-prepend">
+                        <label class="input-group-text">Options</label>
                     </div>
-                    <div class="form-group event-offline" style="display: none">
-                        <label>Event Location</label>
-                        <input type="text" class="form-control input-mint" name="event_location[1]"
-                            value="{{old('event_location[1]')}}">
-                    </div>
-                    <div class="form-group event-online" style="display: none">
-                        <label>Link Workshop Online</label>
-                        <input type="text" class="form-control input-mint" name="event_link[1]"
-                            value="{{old('event_link[1]')}}">
-                    </div>
+                    <select class="custom-select input-mint" id="subskill" name="subskill" required>
+                    </select>
                 </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class='offline-workshop'>
-                <h6>Event Ke-2</h6>
-                <div class="form-row">
-                    <div class="col form-group">
-                        <label>Event Date</label>
-                        <input type="date" class="form-control input-mint" name="event_date[2]"
-                            value="{{old('event_date[2]')}}">
-                    </div>
-                    <div class="col form-group">
-                        <label>Event Time</label>
-                        <input type="time" class="form-control input-mint" name="event_time[2]"
-                            value="{{old('event_time[2]')}}">
-                    </div>
-                </div>
-                <div class="form-group event-offline" style="display: none">
-                    <label>Event Location</label>
-                    <input type="text" class="form-control input-mint" name="event_location[2]"
-                        value="{{old('event_location[2]')}}">
-                </div>
-                <div class="form-group event-online" style="display: none">
-                    <label>Link Workshop Online</label>
-                    <input type="text" class="form-control input-mint" name="event_link[2]"
-                        value="{{old('event_link[2]')}}">
-                </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
             </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col"></div>
-        <div class="col my-4">
-            <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </div>
     </div>
     </form>
@@ -166,12 +169,14 @@
 @endsection
 
 @section('js')
+<script src="{{asset('ckeditor/ckeditor.js')}}"></script>
+<script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 <script>
     $("#customFile").change(function(){
-    const name = $(this.files[0])[0].name;
-    $(".image-text").text(name);
-    readUrlImage($(this));
-});
+        const name = $(this.files[0])[0].name;
+        $(".image-text").text(name);
+        readUrlImage($(this));
+    });
 
 
 function readUrlImage(input){
@@ -196,6 +201,36 @@ $(".type-event").on('change', function(){
         $('.event-offline').css('display', 'block');
     }
 })
+
+$("#skillInput").on('change', async function() {
+    const id = this.value;
+    const subskillList = document.querySelector('#subskill');
+    try {
+        const subskill = await fetchSubskill(id);
+
+        const result = updateSubskill(subskill);
+
+        subskillList.innerHTML = result;
+
+        $('.subskill-box').show();
+
+    } catch (error) {
+        console.error(error);
+    }
+})
+
+const fetchSubskill = (id) => {
+   return fetch(`http://127.0.0.1:8000/api/subskill/${id}`)
+    .then(res => res.json());
+}
+
+const updateSubskill = (subskills) => {
+    let content = '';
+    subskills.forEach(e => {
+        content += `<option value="${e.id}">${e.name}</option>`
+    });
+    return content;
+}
 
 </script>
 @endsection

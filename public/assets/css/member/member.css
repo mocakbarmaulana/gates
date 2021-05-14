@@ -71,8 +71,13 @@ a:hover {
     text-decoration: none;
 }
 
+.card a {
+    height: 100%;
+}
+
 .course-content {
     cursor: pointer;
+    height: 100%;
     transition: ease-in-out 0.2s;
 }
 

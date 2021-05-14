@@ -32,7 +32,7 @@
                 <ul class="list-unstyled">
                     <li class="my-3">
                         <p class="m-0"><strong>Description : </strong></p>
-                        <span>{{$order->course->description}}</span>
+                        <span>{!! $order->course->description !!}</span>
                     </li>
                 </ul>
             </div>

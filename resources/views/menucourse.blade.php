@@ -45,7 +45,8 @@
                                 <span class="text-secondary">{{$course->skill->name}}</span>
                             </div>
                             <div class="">
-                                <span class="badge badge-pill badge-info">1 / 60</span>
+                                <span class="badge badge-pill badge-info">{{$course->orders_count}} /
+                                    {{$course->course_details[0]->quota}}</span>
                             </div>
                         </div>
                         <div class="info-course mt-2 d-flex justify-content-between">

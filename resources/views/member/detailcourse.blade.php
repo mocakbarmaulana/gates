@@ -49,7 +49,7 @@
     <div class="row my-3">
         <div class="col">
             <b>Description :</b>
-            <p>{{$course->course->description}}</p>
+            <p>{!! $course->course->description !!}</p>
         </div>
     </div>
 </div>

@@ -6,6 +6,7 @@ use App\Helper\Helper;
 use App\Http\Controllers\Controller;
 use App\Models\Achievement;
 use App\Models\Course;
+use App\Models\Micro_classes;
 use App\Models\Order;
 use App\Models\Payment;
 use App\Models\Skill;
@@ -102,7 +103,7 @@ class MemberController extends Controller
 
     public function getCourseAll(Request $request){
         $active = 'Course';
-        $id = Auth::guard('member')->id();
+        // $id = Auth::guard('member')->id();
         $q = $request->q;
 
         // $courses = Order::when($request->q, function($q){
@@ -117,11 +118,19 @@ class MemberController extends Controller
         //     }]);
         // })->where('student_id', $id)->where('status', 1)->get();
 
-            $courses = Course::when($request->q, function($q, $request) {
+            // $courses = Course::when($request->q, function($q, $request) {
+            //     $q->where('skill_id', $request);
+            // })->whereHas('orders', function($q){
+            //     $q->where('status', 1)->where('student_id', 1);
+            // })->get();
+
+            $courses = Course::when($request->q, function($q, $request){
                 $q->where('skill_id', $request);
-            })->whereHas('orders', function($q){
-                $q->where('status', 1)->where('student_id', 1);
+            })->whereHas('orders', function($e){
+                $e->where('status', 1)->where('student_id', Auth::guard('member')->id());
             })->get();
+
+            // dd($courses, $id);
 
         $skills = Skill::all();
 
@@ -183,9 +192,79 @@ class MemberController extends Controller
     public function getTrophy(){
         $active = 'Achievement';
         $id = Auth::guard('member')->id();
-        $trophys = Achievement::where('student_id', $id)->get();
+        $trophys = Achievement::with('skill')->where('student_id', $id)->orderBy('skill_id', 'ASC')->get();
 
-        return view('member.trophy', compact('active', 'trophys'));
+        $skills = Skill::with('subskills')->get();
+
+        // dd($max);
+        // $idSkill = [];
+        // $idSubskill = [];
+        // $totalSubskill = [];
+        // $currentTotalSubskill = [];
+
+        // search id skill in achievment. if id skill exist in array idSkill not insert into array idSkill
+        // foreach ( $trophys as $key => $tropy ){
+        //     if(!in_array($tropy->skill_id, $idSkill)){
+        //         array_push($idSkill, $tropy->id);
+        //         $idSubskill["$tropy->name_skill"] = array();
+        //     }
+        // }
+
+        // cari total subskil dari masing masing skill.
+        // foreach ($idSkill as $key => $skill ) {
+        //     $total = Skill::with('subskills')->find($skill);
+        //     dd($total);
+        //     array_push( $totalSubskill, count($total->subskills));
+        // }
+
+        // cari id subskill di table achievment. dan jika belum ada di array idsubskill. maka masukaan ke array ke tersbut.
+        // $i = 0;
+        // foreach ($trophys as $key => $achiev) {
+        //     $angka = $idSkill[$i];
+        //     array_push($idSubskill[$angka], "jos{$key}");
+        //     $i++;
+        // }
+        // for ($i=0; $i < count($trophys) ; $i++) {
+        //     if(!in_array($trophys[$i]->subskill_id, $idSubskill[$trophys[$i]->name_skill])){
+        //         array_push($idSubskill[$trophys[$i]->name_skill], $trophys[$i]->subskill_id);
+        //     }
+        //     // echo($trophys[$i]->subskill_id);
+        // }
+
+
+        // Cari id subskill yang ada ditable achievment.
+        // foreach ($trophys as $key => $achiev) {
+        //     if(!in_array($achiev->subskill_id, $idSubskill[$idSkill[$key]])) {
+        //         // $idSubskill[$idSkill[$key]] = array_push($idSubskill[$idSkill[$key]], $achiev->subskill_id);
+        //         // array_push($idSubskill, $achiev->subskill_id);
+        //         // $idSubskill[$idSkill[$key]] = array_push()
+        //         // $idSubskill =
+        //         // [
+        //         //     $idSkill[$key] = array()
+        //         // ];
+        //         echo ('oke');
+        //     }
+        // }
+
+        // array_push($idSubskill[1], 'jos');
+
+        // dd($idSubskill[1]);
+        // dd($testArray, $idSubskill);
+
+        // cari nilai subskill yang sesuai id di table achievment
+        // foreach ($idSkill as $key => $skill) {
+        //     $value = 0;
+        //     foreach ($trophys as $achiev) {
+        //         if($achiev->skill_id == $skill) {
+
+        //         }
+        //     }
+        // }
+
+        // dd($idSkill, $totalSubskill, $idSubskill);
+        // dd($trophys);
+
+        return view('member.trophy', compact('active', 'trophys', 'skills'));
     }
 
     public function setWishlist(Request $request, $id){
@@ -211,5 +290,39 @@ class MemberController extends Controller
         // dd($wishlists[0]);
 
         return view('wishlist', compact('active', 'wishlists'));
+    }
+
+    // function to routeDetailMicroClass
+    public function getDetailMicroClass($id) {
+
+        $active = 'Micro Class';
+        $microclass = Micro_classes::find($id);
+
+        return view('member.microclassdetail', compact('microclass', 'active'));
+    }
+
+    // Function microclass save to achievment.
+    public function setSkillMicroClass(Request $request) {
+        $id = Auth::guard('member')->id();
+
+        $achieve = Achievement::where('skill_id', $request->skill)
+                    ->where('subskill_id', $request->subskill)
+                    ->where('student_id', $id)
+                    ->first();
+
+        $student = Student::find($id);
+
+        if(is_null($achieve)){
+            $trophy = new Achievement();
+            $trophy->student_id = $id;
+            $trophy->skill_id = $request->skill;
+            $trophy->subskill_id = $request->subskill;
+            $trophy->name_student = $student->name;
+            $trophy->name_skill = $request->name;
+            $trophy->total = $trophy->total += 1;
+            $trophy->save();
+        }
+
+        return redirect()->back()->with('success', 'Micro class berhasil dibuka');
     }
 }

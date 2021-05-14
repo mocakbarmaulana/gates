@@ -26,7 +26,7 @@
         <div class="col-4">
             <div class="card">
                 <div class="card-header bg-dark">
-                    <h5>Tambah List</h5>
+                    <h5>Tambah Skill</h5>
                 </div>
                 <div class="card-body">
                     <form action="{{route('skill.store')}}" method="POST">
@@ -35,11 +35,13 @@
                         <span class="text-danger">*{{$message}}</span>
                         @enderror
                         <div class="form-group">
-                            <label for="nameSkill">Skill</label>
+                            <label for="nameSkill">Name Skill</label>
                             <input type="text" name="skill" value="{{old('skill')}}" class="form-control"
                                 id="nameSkill">
                         </div>
-                        <button type="submit" class="btn btn-dark">Submit</button>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -53,7 +55,7 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th scope="col">No.</th>
+                                <th scope="col" style="width: 20px">No.</th>
                                 <th scope="col">Skill</th>
                                 {{-- <th scope="col" class="text-center">Dibuat</th> --}}
                                 <th scope="col" class="text-center">Aksi</th>
@@ -68,6 +70,8 @@
                                 <td class="text-center">
                                     <a href="{{route('skill.edit', $skill->id)}}"
                                         class="btn btn-primary btn-sm">Edit</a>
+                                    <a href="{{route('skill.show', $skill->id)}}"
+                                        class="btn btn-warning btn-sm">Detail</a>
                                     <button type="button" class="btn btn-secondary btn-sm btn-delete-skill"
                                         data-idskill="{{$skill->id}}" data-toggle="modal"
                                         data-target="#btnDeleteSkill">Delete</button>
