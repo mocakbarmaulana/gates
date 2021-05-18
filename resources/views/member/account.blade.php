@@ -16,7 +16,7 @@
         <div class="row">
             <div class="col-12 text-center mb-3">
                 <img src="{{asset($account->getUserImage($account->image))}}" class="image-icon rounded-circle"
-                    alt="image-profile" width="120px">
+                    alt="image-profile" width="120px" height="120px">
             </div>
             <div class="col-12">
                 <div class="row">
@@ -28,6 +28,11 @@
                         <input type="file" name="image" id="imageProfile" style="display: none">
                         <button type="button" class="btn btn-mint btn-sm btn-change">Change</button>
                     </div>
+                </div>
+                <div class="text-center">
+                    @error('image')
+                    <small class="text-danger">*{{$message}}</small>
+                    @enderror
                 </div>
             </div>
         </div>

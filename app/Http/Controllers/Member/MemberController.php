@@ -185,11 +185,16 @@ class MemberController extends Controller
         ]);
 
         $account = Student::find($id);
+        // dd($request);
+        // die;
+
 
         if ($request->image_delete) {
+            // dd("ada");
             $imageName = null;
             Storage::delete('/public/assets/images/user/'.$account->image);
         } else {
+            // dd("enggak ada");
             $imageName = Helper::uploadImage($request->image, $account->image, 'user');
         }
 
