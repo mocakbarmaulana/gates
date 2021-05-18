@@ -75,6 +75,7 @@ class MemberController extends Controller
     }
 
     public function payment(Request $request){
+
         $this->validate($request, [
             'name' => 'required|string',
             'number_bank' => 'required|integer',
@@ -84,18 +85,32 @@ class MemberController extends Controller
             'image' => 'required|image|mimes:png,jpg|max:2048',
         ]);
 
-        $imageName = Helper::uploadImage($request->image, null, 'payment');
+        $order = Order::find($request->id);
 
-        $payment = new Payment();
-        $payment->order_id = $request->id;
-        $payment->name_transfer = $request->name;
-        $payment->name_bank = $request->name_bank;
-        $payment->number_bank = $request->number_bank;
-        $payment->transfer_date = $request->date_transfer;
-        $payment->amount = $request->amount;
-        $payment->image_transfer = $imageName;
-        $payment->status = true;
-        $payment->save();
+        if($order->payments) {
+            $payment = Payment::find($order->payments->id);
+            $imageName = Helper::uploadImage($request->image, $payment->image_transfer, 'payment');
+            $payment->name_transfer = $request->name;
+            $payment->name_bank = $request->name_bank;
+            $payment->number_bank = $request->number_bank;
+            $payment->transfer_date = $request->date_transfer;
+            $payment->amount = $request->amount;
+            $payment->image_transfer = $imageName;
+            $payment->status = false;
+            $payment->save();
+        } else {
+            $imageName = Helper::uploadImage($request->image, null, 'payment');
+            $payment = new Payment();
+            $payment->order_id = $request->id;
+            $payment->name_transfer = $request->name;
+            $payment->name_bank = $request->name_bank;
+            $payment->number_bank = $request->number_bank;
+            $payment->transfer_date = $request->date_transfer;
+            $payment->amount = $request->amount;
+            $payment->image_transfer = $imageName;
+            $payment->status = false;
+            $payment->save();
+        }
 
         return redirect()->back()->with('success', 'Silakan tunggu untuk beberapa saat');
 

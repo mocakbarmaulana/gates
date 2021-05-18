@@ -87,6 +87,8 @@
                             <p><strong>Status : </strong><br>
                                 @if ($payment->order->status == 1)
                                 <span><i class="far fa-check-circle text-success"></i> Dibayar</span>
+                                @elseif ($payment->status == 5)
+                                <span><i class="fas fa-info-circle text-danger"></i> Pembayaran Ditolak</span>
                                 @else
                                 <span><i class="far fa-times-circle text-danger"></i> Belum Dibayar</span>
                                 @endif
@@ -98,12 +100,20 @@
 
             <div class="button d-flex flex-column">
                 <div class="mb-3">
-                    @if ($payment->order->status == 0)
+                    @if ($payment->order->status == 0 || $payment->order->status === 5)
                     <form action="{{route('payment.update', $payment->id )}}" method="post">
                         @method('PUT')
                         @csrf
+                        <input type="hidden" name="type_payment" value="confirm">
                         <input type="hidden" name="id_order" value="{{$payment->order->id}}">
                         <button type="submit" class="btn btn-block btn-lg btn-success">Confirm Payment</button>
+                    </form>
+                    <form action="{{route('payment.update', $payment->id )}}" method="post">
+                        @method('PUT')
+                        @csrf
+                        <input type="hidden" name="type_payment" value="decline">
+                        <input type="hidden" name="id_order" value="{{$payment->order->id}}">
+                        <button type="submit" class="btn btn-block btn-lg btn-danger mt-3">Decline Payment</button>
                     </form>
                     @endif
                 </div>

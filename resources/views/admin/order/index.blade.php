@@ -46,6 +46,8 @@
                         <td class="text-center">
                             @if ($order->status == 1)
                             <span><i class="far fa-check-circle text-success"></i> Dibayar</span>
+                            @elseif ($order->status == 5)
+                            <span><i class="fas fa-info-circle text-danger"></i> Pembayaran Ditolak</span>
                             @else
                             <span><i class="far fa-times-circle text-danger"></i> Belum Dibayar</span>
                             @endif
