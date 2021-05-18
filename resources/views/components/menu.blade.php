@@ -6,7 +6,7 @@
             <img src="{{ asset('adminlte/img/user.png') }}" class="img-circle elevation-2" alt="User Image" />
         </div>
         <div class="info">
-            <span class="d-block text-white">{{$username}}</span>
+            <span class="d-block text-dark">{{$username}}</span>
         </div>
     </div>
 
@@ -15,7 +15,8 @@
 
             @foreach ($list as $item)
             <li class="nav-item">
-                <a href="{{route($item['link'])}}" class="nav-link {{$isActive($item['label']) ? 'active' : ''}}">
+                <a href="{{route($item['link'])}}"
+                    class="nav-link btn-mint {{$isActive($item['label']) ? 'btn-active' : ''}}">
                     <i class="nav-icon {{$item['icon']}} "></i>
                     <p>{{$item['label']}}</p>
                 </a>
@@ -24,7 +25,7 @@
 
 
             <li class="nav-item">
-                <a class="nav-link" href="{{route('logoutAll')}}">
+                <a class="nav-link btn-mint" href="{{route('logoutAll')}}">
                     <i class="nav-icon fas fa-sign-out-alt"></i>
                     <p>Sign Out</p>
                 </a>

@@ -8,19 +8,19 @@
 
 @section('content')
 <div class="py-4">
-    @if ($order->status == 0 && $order->payments)
+    @if ($order->status == 0 && $order->payments->status == 0)
     <div class="col-12">
         <div class="alert alert-warning" role="alert">
-            Saat ini pembayaran anda sedang di lakukan pengecakan, jika dalam 2 jam belum ada perubahan silakan hubungi
+            Saat ini pembayaran anda sedang di lakukan pengecekan, jika dalam 2 jam belum ada perubahan silakan hubungi
             kami
         </div>
     </div>
     @endif
 
-    @if ($order->payments && $order->payments->status == 0)
+    @if ($order->payments && $order->payments->status == 5)
     <div class="px-2">
-        <div class="alert alert-info" role="alert">
-            Tunggu beberapa saat, karena pembayaran sedang dikonfirmasi admin
+        <div class="alert alert-danger" role="alert">
+            Pembayaran anda ditolak
         </div>
     </div>
     @endif
@@ -58,6 +58,8 @@
                     <p class="m-0"><strong>Status : </strong></p>
                     @if ($order->status == 1)
                     <span><i class="far fa-check-circle text-success"></i> Dibayar</span>
+                    @elseif ($order->payments->status == 5)
+                    <span><i class="fas fa-info-circle text-danger"></i> Pembayaran Ditolak</span>
                     @else
                     <span><i class="far fa-times-circle text-danger"></i> Belum Dibayar</span>
                     @endif
@@ -65,7 +67,7 @@
             </ul>
 
             <div class="px-2">
-                @if ($order->status == 0)
+                @if ($order->status == 0 || $order->status === 5)
                 <button class="btn btn-block btn-warning font-weight-bold" data-toggle="modal"
                     data-target="#staticBackdrop">Confirm Payment</button>
                 @else

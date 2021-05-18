@@ -83,8 +83,16 @@ class PaymentController extends Controller
     {
         $order = Order::find($request->id_order);
         $payment = Payment::find($id);
-        $order->status = true;
-        $payment->status = true;
+
+        if($request->type_payment == "confirm") {
+            $order->status = true;
+            $payment->status = true;
+        }
+
+        if($request->type_payment == "decline") {
+            $payment->status = 5;
+        }
+
         $payment->save();
         $order->save();
 

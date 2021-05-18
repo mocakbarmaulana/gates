@@ -26,7 +26,7 @@
     <div class="row">
         <div class="col-4">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Edit Skill</h5>
                 </div>
                 <div class="card-body">
@@ -38,11 +38,11 @@
                         @enderror
                         <div class="form-group">
                             <label for="nameSkill">Name Skill</label>
-                            <input type="text" name="skill" value="{{$skill->name}}" class="form-control"
+                            <input type="text" name="skill" value="{{$skill->name}}" class="form-control input-mint"
                                 id="nameSkill">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn btn-dark btn-block">Submit</button>
+                            <button type="submit" class="btn btn-blue-old btn-block">Submit</button>
                         </div>
                     </form>
                 </div>
@@ -51,7 +51,7 @@
         <div class="col ml-5">
 
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>List Skill</h5>
                 </div>
                 <div class="card-body">

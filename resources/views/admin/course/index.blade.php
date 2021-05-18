@@ -19,12 +19,12 @@
     @endif
     <div class="row mb-3">
         <div class="col text-right">
-            <a href="{{route('course.create')}}" class="btn btn-primary"><i class="fas fa-plus-circle mx-2"></i>Create
+            <a href="{{route('course.create')}}" class="btn btn-mint"><i class="fas fa-plus-circle mx-2"></i>Create
                 Course</a>
         </div>
     </div>
     <div class="card">
-        <div class="card-header bg-dark">
+        <div class="card-header bg-blue-old">
             <h5>List Course</h5>
         </div>
         <div class="card-body">
@@ -42,8 +42,8 @@
                         <td class="text-letf">{{ $course->name }}</td>
                         <td class="text-center">{{ $course->teacher}}</td>
                         <td class="text-center">
-                            <a href="{{route('course.show', $course->id)}}" class="btn btn-success btn-sm">Detail</a>
-                            <a href="{{route('course.edit', $course->id)}}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="{{route('course.show', $course->id)}}" class="btn btn-mint btn-sm">Detail</a>
+                            <a href="{{route('course.edit', $course->id)}}" class="btn btn-blue-old btn-sm">Edit</a>
                         </td>
                     </tr>
                     @endforeach

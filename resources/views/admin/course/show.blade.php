@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>List Member Course</h5>
                 </div>
                 <div class="card-body p-0">
@@ -119,7 +119,7 @@
         </div>
         <div class="col-5">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>{{$course->name}}</h5>
                 </div>
                 <div class="card-body">

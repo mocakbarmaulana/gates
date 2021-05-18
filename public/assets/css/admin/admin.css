@@ -12,6 +12,15 @@
     color: #000;
 }
 
+.bg-green-mint-old {
+    background-color: #7ccfbf;
+}
+
+.bg-blue-old {
+    background-color: #353750;
+    color: #fff;
+}
+
 .order-filter {
     border: none;
 }
@@ -26,8 +35,8 @@
 }
 
 .btn-active {
-    background-color: #7ccfbf;
-    color: #fff;
+    background-color: #7ccfbf !important;
+    color: #fff !important;
 }
 
 .btn-mint {
@@ -38,8 +47,28 @@
 
 .btn-mint:hover {
     background-color: #7ccfbf;
-    color: #000;
+    color: #fff !important;
     font-weight: 500;
+}
+
+.btn-outline-mint {
+    color: #7ccfbf;
+    border: 1px solid #97f8e4;
+}
+
+.btn-outline-mint:hover {
+    background-color: #97f8e4;
+    color: #fff;
+}
+
+.btn-blue-old {
+    background-color: #353750;
+    color: #fff;
+}
+
+.btn-blue-old:hover {
+    background-color: #5c5e7c;
+    color: #fff;
 }
 
 /* Nav tabs */
@@ -55,3 +84,5 @@
 .nav-tabs .nav-link.active {
     background-color: #f2f2f2 !important;
 }
+
+/* Footer */
