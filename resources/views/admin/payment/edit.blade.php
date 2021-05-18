@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Detail Payment</h5>
                 </div>
                 <div class="card-body">
@@ -58,7 +58,7 @@
 
         <div class="col-4">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Invoice Order</h5>
                 </div>
                 <div class="card-body">

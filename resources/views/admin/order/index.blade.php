@@ -16,15 +16,15 @@
     <div class="search">
         <form action="" method="GET">
             <div class="input-group mb-3">
-                <input type="text" name="q" class="form-control" placeholder="Search Name Order">
+                <input type="text" name="q" class="form-control input-mint" placeholder="Search Name Order">
                 <div class="input-group-append">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
+                    <button class="btn btn-outline-mint" type="submit">Search</button>
                 </div>
             </div>
         </form>
     </div>
     <div class="card">
-        <div class="card-header bg-dark">
+        <div class="card-header bg-blue-old">
             <h5>List Order</h5>
         </div>
         <div class="card-body p-0">

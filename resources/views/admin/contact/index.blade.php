@@ -13,7 +13,7 @@
 </nav>
 <div class="mx-3 p-2 bg-light">
     <table class="table table-bordered table-striped">
-        <thead class="thead-dark">
+        <thead class="bg-blue-old">
             <tr>
                 <th scope="col" class="text-center" style="width: 20px">No.</th>
                 <th scope="col">Name</th>
@@ -38,12 +38,5 @@
             @endforeach
         </tbody>
     </table>
-    {{-- <div class="card">
-        <div class="card-header bg-dark">
-            <h5>List Course</h5>
-        </div>
-        <div class="card-body">
-        </div>
-    </div> --}}
 </div>
 @endsection

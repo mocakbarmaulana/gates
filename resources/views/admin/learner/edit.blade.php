@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Edit Learner</h5>
                 </div>
                 <div class="card-body">
@@ -33,21 +33,22 @@
                             @error('name')
                             <br><span class="text-danger">*{{$message}}</span>
                             @enderror
-                            <input type="text" name="name" class="form-control" value="{{$student->name}}">
+                            <input type="text" name="name" class="form-control input-mint" value="{{$student->name}}">
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
                             @error('email')
                             <br><span class="text-danger">*{{$message}}</span>
                             @enderror
-                            <input type="email" name="email" class="form-control" value="{{$student->email}}">
+                            <input type="email" name="email" class="form-control input-mint"
+                                value="{{$student->email}}">
                         </div>
                         <div class="form-group">
                             <label>Phone Number</label>
                             @error('phone_number')
                             <br><span class="text-danger">*{{$message}}</span>
                             @enderror
-                            <input type="number" name="phone_number" class="form-control"
+                            <input type="number" name="phone_number" class="form-control input-mint"
                                 value="{{$student->phone_number}}">
                         </div>
                         <div class="form-group">
@@ -55,7 +56,7 @@
                             @error('address')
                             <br><span class="text-danger">*{{$message}}</span>
                             @enderror
-                            <textarea name="address" id="address" class="form-control" cols="30"
+                            <textarea name="address" id="address" class="form-control input-mint" cols="30"
                                 rows="5">{{$student->address}}</textarea>
                         </div>
                         <div class="form-group">
@@ -64,17 +65,17 @@
                             @error('password')
                             <br><span class="text-danger">*{{$message}}</span>
                             @enderror
-                            <input type="password" name="password" class="form-control">
+                            <input type="password" name="password" class="form-control input-mint">
                         </div>
                         <div class="form-group">
                             <label for="address">Konfirmasi Password</label>
-                            <input type="password" name="password_confirmation" class="form-control">
+                            <input type="password" name="password_confirmation" class="form-control input-mint">
                         </div>
                         <div class="form-group d-flex justify-content-between">
                             {{-- <button type="button" class="btn btn-danger btn-sm btn-delete-learner"
                                 data-idlearner=""="{{$student->id}}" data-toggle="modal"
                             data-target="#btnDeleteLearner">Delete</button> --}}
-                            <button type="submit" class="btn btn-primary">Update Learner</button>
+                            <button type="submit" class="btn btn-mint">Update Learner</button>
                         </div>
                     </form>
                 </div>
@@ -82,7 +83,7 @@
         </div>
         <div class="col-4">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Detail Learner</h5>
                 </div>
                 <div class="card-body">

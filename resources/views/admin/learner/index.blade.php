@@ -23,15 +23,15 @@
                 <form action="" method="GET">
                     <div class="input-group mb-3">
                         {{-- @csrf --}}
-                        <input type="text" name="q" class="form-control" placeholder="Search Name">
+                        <input type="text" name="q" class="form-control input-mint" placeholder="Search Name">
                         <div class="input-group-append">
-                            <button class="btn btn-outline-primary" type="submit">Search</button>
+                            <button class="btn btn-outline-mint" type="submit">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>List Learner</h5>
                 </div>
                 <div class="card-body">
@@ -56,7 +56,7 @@
                                 </td>
                                 <td class="text-center">{{$student->email}}</td>
                                 <td class="text-center"><a href="{{route('learner.edit', $student->id)}}"
-                                        class="btn btn-sm btn-primary">Edit</a></td>
+                                        class="btn btn-sm btn-blue-old">Edit</a></td>
                             </tr>
                             @endforeach
                         </tbody>
@@ -70,7 +70,7 @@
         </div>
         <div class="col-4">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Tambah Learner</h5>
                 </div>
                 <div class="card-body">
@@ -81,21 +81,23 @@
                         @enderror
                         <div class="form-group">
                             <input type="text" name="name" value="{{old('name')}}"
-                                class="form-control @error('name') is-invalid @enderror" placeholder="Full Name">
+                                class="form-control input-mint @error('name') is-invalid @enderror"
+                                placeholder="Full Name">
                         </div>
                         @error('email')
                         <span class="text-danger">*{{$message}}</span>
                         @enderror
                         <div class="form-group">
                             <input type="email" name="email" value="{{old('email')}}"
-                                class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}" placeholder="Email">
+                                class="form-control input-mint {{$errors->has('email') ? 'is-invalid' : ''}}"
+                                placeholder="Email">
                         </div>
                         @error('phone_number')
                         <span class="text-danger">*{{$message}}</span>
                         @enderror
                         <div class="form-group">
                             <input type="number" name="phone_number" value="{{old('phone_number')}}"
-                                class="form-control {{$errors->has('email') ? 'is-invalid' : ''}}"
+                                class="form-control input-mint {{$errors->has('email') ? 'is-invalid' : ''}}"
                                 placeholder="Phone Number">
                         </div>
                         @error('address')
@@ -103,7 +105,7 @@
                         @enderror
                         <div class="form-group">
                             <textarea name="address"
-                                class="form-control {{$errors->has('address') ? 'is-invalid' : ''}}" rows="5"
+                                class="form-control input-mint {{$errors->has('address') ? 'is-invalid' : ''}}" rows="5"
                                 placeholder="Address">{{old('address')}}</textarea>
                         </div>
                         @error('password')
@@ -111,14 +113,14 @@
                         @enderror
                         <div class="form-group">
                             <input type="password" name="password"
-                                class="form-control {{$errors->has('password') ? 'is-invalid' : ''}}"
+                                class="form-control input-mint {{$errors->has('password') ? 'is-invalid' : ''}}"
                                 placeholder="Password">
                         </div>
                         <div class="form-group">
-                            <input type="password" name="password_confirmation" class="form-control"
+                            <input type="password" name="password_confirmation" class="form-control input-mint"
                                 placeholder="Retype Password">
                         </div>
-                        <button type="submit" class="btn btn-dark">Submit</button>
+                        <button type="submit" class="btn btn-mint">Submit</button>
                     </form>
                 </div>
             </div>

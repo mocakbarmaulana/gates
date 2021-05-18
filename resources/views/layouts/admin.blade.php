@@ -11,9 +11,13 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}" />
 
-    {{-- <link rel="stylesheet" href="{{asset('assets/css/kuwi.css')}}"> --}}
+    <!-- <link rel="stylesheet" href="{{asset('assets/css/kuwi.css')}}"> -->
+
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('adminlte/dist/css/adminlte.min.css') }}" />
+
+    <!-- My Admin Style -->
+    <link rel="stylesheet" href="{{asset('assets/css/admin/admin.css')}}">
     @yield('head')
 </head>
 

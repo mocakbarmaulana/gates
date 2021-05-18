@@ -27,7 +27,7 @@
     <div class="inner-width">
         <div class="row mb-3 create-micro-class">
             <div class="col text-right">
-                <a data-toggle="modal" data-target="#modalMicroClass" class="btn btn-primary" onclick="resetForm()">
+                <a data-toggle="modal" data-target="#modalMicroClass" class="btn btn-mint" onclick="resetForm()">
                     <i class="fas fa-plus-circle mx-2"></i>
                     Create Micro Class
                 </a>
@@ -52,11 +52,11 @@
                     </td>
                     <td class="text-left" style="width: 250px; vertical-align: middle;">
                         <a data-toggle="modal" data-target="#modalMicroClass"
-                            onclick="actionEditMicroClass({{$microclass}})" class="btn btn-warning btn-sm">
+                            onclick="actionEditMicroClass({{$microclass}})" class="btn btn-blue-old btn-sm">
                             <i class="fas fa-edit"></i>
                             Edit
                         </a>
-                        <a href="{{route('micro-class.show', $microclass->id)}}" class="btn btn-sm btn-success">
+                        <a href="{{route('micro-class.show', $microclass->id)}}" class="btn btn-sm btn-mint">
                             <i class="fas fa-info-circle"></i>
                             Detail
                         </a>
@@ -100,14 +100,14 @@
                         @error('name')
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
-                        <input type="text" class="form-control name" name="name">
+                        <input type="text" class="form-control input-mint name" name="name">
                     </div>
                     <div class="form-group">
                         <label>Description Micro Class</label>
                         @error('description')
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
-                        <textarea class="form-control description ckeditor" id="description"
+                        <textarea class="form-control input-mint description ckeditor" id="description"
                             name="description"></textarea>
                     </div>
                     <div class="form-group">
@@ -115,7 +115,7 @@
                         @error('link')
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
-                        <input type="text" name="link" class="form-control" id="link">
+                        <input type="text" name="link" class="form-control input-mint" id="link">
                     </div>
                     <div class="form-group">
                         <label>Choose Skills</label>
@@ -123,7 +123,7 @@
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
                         <div class="input-group mb-3">
-                            <select name="skill" class="custom-select" id="inputSkill">
+                            <select name="skill" class="custom-select input-mint" id="inputSkill">
                                 <option selected>Choose...</option>
                                 @foreach ($skills as $item)
                                 <option value="{{$item->id}}">{{$item->name}}</option>
@@ -140,7 +140,7 @@
                         <small class="text-danger">*{{$message}}</small>
                         @enderror
                         <div class="input-group mb-3">
-                            <select name="subskill" class="custom-select" id="inputSubskill">
+                            <select name="subskill" class="custom-select input-mint" id="inputSubskill">
                                 <option selected>Choose...</option>
                             </select>
                             <div class="input-group-append">
@@ -156,7 +156,7 @@
                         <div class="input-group mb-3">
                             <div class="custom-file">
                                 <input type="file" name="image" class="custom-file-input" id="inputUploadImage">
-                                <label class="custom-file-label image-text" for="inputUploadImage"
+                                <label class="custom-file-label image-text input-mint" for="inputUploadImage"
                                     aria-describedby="inputGroupFileAddon02">Choose file</label>
                             </div>
                         </div>

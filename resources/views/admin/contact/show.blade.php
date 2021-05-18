@@ -38,7 +38,7 @@
                     </p>
                 </li>
             </ul>
-            <a href="{{route('contact.index')}}" class="btn btn-info position-absolute" style="bottom: 10px">
+            <a href="{{route('contact.index')}}" class="btn btn-mint position-absolute" style="bottom: 10px">
                 <i class="fas fa-arrow-left"></i> Back
             </a>
         </div>

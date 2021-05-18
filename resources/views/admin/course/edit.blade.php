@@ -31,8 +31,7 @@
                 @method('PUT')
                 <div class="text-center">
                     <img src="{{asset('storage/assets/images/course/'.$course->image_course)}}"
-                        class="img-fluid image-preview image-thumbnail" style="min-height: 500px" alt="no-image"
-                        width="100%">
+                        class="img-fluid image-preview image-thumbnail" alt="no-image" width="60%">
                 </div>
                 <div class="form-group mt-5">
                     <label for="customFile">Upload Image</label>

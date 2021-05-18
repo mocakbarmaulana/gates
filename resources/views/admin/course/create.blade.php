@@ -20,7 +20,7 @@
                 @csrf
                 <div class="text-center">
                     <img src="{{asset('assets/images/no-image.png')}}" class="img-fluid image-preview image-thumbnail"
-                        style="min-height: 500px" alt="no-image" width="100%">
+                        alt="no-image" width="60%">
                 </div>
                 <div class="form-group mt-5">
                     <label for="customFile">Upload Image</label>
@@ -160,7 +160,7 @@
             </div>
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                <button type="submit" class="btn btn-mint btn-block">Submit</button>
             </div>
         </div>
     </div>

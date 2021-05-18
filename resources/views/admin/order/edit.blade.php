@@ -17,7 +17,7 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-header bg-dark">
+                <div class="card-header bg-blue-old">
                     <h5>Invoice Order</h5>
                 </div>
                 <div class="card-body">
@@ -90,13 +90,12 @@
     <div class="row my-3 d-flex">
         <div class="col w-50">
             @if ($orderpayment)
-            <a href="{{route('payment.edit', $orderpayment)}}" class="btn btn-block btn-warning font-weight-bold">Check
+            <a href="{{route('payment.edit', $orderpayment)}}" class="btn btn-block btn-blue-old font-weight-bold">Check
                 Payments</a>
             @endif
         </div>
         <div class="col text-right">
-            <a href="{{route('course.show', $order->course_id)}}"
-                class="btn btn-success font-weight-bold btn-block">Detail
+            <a href="{{route('course.show', $order->course_id)}}" class="btn btn-mint font-weight-bold btn-block">Detail
                 Course</a>
         </div>
     </div>
