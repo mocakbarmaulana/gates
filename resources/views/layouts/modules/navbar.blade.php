@@ -49,7 +49,8 @@
                         @if (empty($user->image))
                         <i class="fas fa-user-circle fa-2x"></i>
                         @else
-                        <img src="{{asset($image)}}" alt="img-menu-profile" class="rounded-circle" width="32px">
+                        <img src="{{asset($image)}}" alt="img-menu-profile" class="rounded-circle" height="32px"
+                            width="32px" style="height: 32px !important">
                         @endif
                     </span>
                     <ul class="menu-profile list-unstyled" style="display: none">
